@@ -1,0 +1,593 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="问题：有两个鸡蛋，求需要丢多少次鸡蛋，才能得到使鸡蛋破碎的最小楼层（第 i - 1 层没有摔碎，而第 i 层摔碎了。如果鸡蛋没有摔碎，可以继续使用。
+one egg
+如果只有一个鸡蛋，那么只能从一楼开始，一层层往上试探。
+many eggs
+假设有 100 层楼
+如果有无数个鸡蛋，可以使用二分法，如果 50 楼没碎，从 1-49 尝试，否则从 51 - 100 尝试。总共要 log100 + 1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="two egg problem">
+<meta property="og:url" content="http://yoursite.com/preposts/2014-08-16-two-egg-problem.html">
+<meta property="og:site_name" content="Hello April">
+<meta property="og:description" content="问题：有两个鸡蛋，求需要丢多少次鸡蛋，才能得到使鸡蛋破碎的最小楼层（第 i - 1 层没有摔碎，而第 i 层摔碎了。如果鸡蛋没有摔碎，可以继续使用。
+one egg
+如果只有一个鸡蛋，那么只能从一楼开始，一层层往上试探。
+many eggs
+假设有 100 层楼
+如果有无数个鸡蛋，可以使用二分法，如果 50 楼没碎，从 1-49 尝试，否则从 51 - 100 尝试。总共要 log100 + 1">
+<meta property="og:updated_time" content="2016-03-02T15:13:26.283Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="two egg problem">
+<meta name="twitter:description" content="问题：有两个鸡蛋，求需要丢多少次鸡蛋，才能得到使鸡蛋破碎的最小楼层（第 i - 1 层没有摔碎，而第 i 层摔碎了。如果鸡蛋没有摔碎，可以继续使用。
+one egg
+如果只有一个鸡蛋，那么只能从一楼开始，一层层往上试探。
+many eggs
+假设有 100 层楼
+如果有无数个鸡蛋，可以使用二分法，如果 50 楼没碎，从 1-49 尝试，否则从 51 - 100 尝试。总共要 log100 + 1">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> two egg problem | Hello April </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello April</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                two egg problem
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-08-16T22:31:00+08:00" content="2014-08-16">
+              2014-08-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/preposts/2014-08-16-two-egg-problem.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="preposts/2014-08-16-two-egg-problem.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>问题：有两个鸡蛋，求需要丢多少次鸡蛋，才能得到使鸡蛋破碎的最小楼层（第 i - 1 层没有摔碎，而第 i 层摔碎了。如果鸡蛋没有摔碎，可以继续使用。</p>
+<p><strong>one egg</strong></p>
+<p>如果只有一个鸡蛋，那么只能从一楼开始，一层层往上试探。</p>
+<p><strong>many eggs</strong></p>
+<p>假设有 100 层楼</p>
+<p>如果有无数个鸡蛋，可以使用二分法，如果 50 楼没碎，从 1-49 尝试，否则从 51 - 100 尝试。<br>总共要 log100 + 1 = 7 次</p>
+<p><strong>two eggs</strong></p>
+<p>如果只有两个鸡蛋，那么只能先扔一个，再扔另一个。假设每 10 层扔一次，那么最坏要扔 19 次（第一个鸡蛋从 10 层开始，在 100 层碎了，第二个鸡蛋从 91 层开始， 在 99 层碎了）。</p>
+<p>为了在最坏的情况下也能获得较少的次数，采取每次增加 n - 1 层的方法：第一次从 n 层开始，第二次从 n + (n - 1) 层开始……</p>
+<p>n + (n - 1) + (n - 2) + … + 1 &gt;= 100</p>
+<p>也就是 n(n - 1) &lt;= 200</p>
+<p>求解 n = 13.651, 从 14 层开始丢，总共需要 14 次（丢两个鸡蛋）</p>
+<p><strong>Lots of of eggs, and lots of floors</strong></p>
+<p>如果有多个鸡蛋，多层楼，那么可以把这个问题转化为子问题</p>
+<p>假设有 e 个鸡蛋，k 层楼，那么如果从第 n 层楼丢一个鸡蛋：</p>
+<ol>
+<li>鸡蛋碎了，问题变为 e - 1 个鸡蛋， n - 1 层楼</li>
+<li>鸡蛋没有碎，问题变为 e 个鸡蛋， 检查剩余的 k - n 层</li>
+</ol>
+<p>为了最小化最坏情况，取 1 和 2 的最大值，然后从 n 取 1..k(分别从 1 到 k 层楼丢)，取其中的最小值</p>
+<p>下面的程序计算了最多 10 个鸡蛋， 200 层楼所需的最少次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">e = <span class="number">10</span></span><br><span class="line">k = <span class="number">200</span></span><br><span class="line"></span><br><span class="line">f = [[<span class="number">0</span>] * (e + <span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(k + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(k + <span class="number">1</span>):</span><br><span class="line">    f[i][<span class="number">1</span>] = i</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> range(e + <span class="number">1</span>):</span><br><span class="line">    f[<span class="number">1</span>][j] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, k + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>, e + <span class="number">1</span>):</span><br><span class="line">        f[i][j] = (<span class="number">1</span> &lt;&lt; <span class="number">31</span> - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">1</span>, i + <span class="number">1</span>):</span><br><span class="line">            f[i][j] = min(f[i][j], <span class="number">1</span> + max(f[k - <span class="number">1</span>][j - <span class="number">1</span>], f[i - k][j]))</span><br><span class="line"></span><br><span class="line"><span class="comment"># condition of 100 floors</span></span><br><span class="line"><span class="keyword">print</span> f[<span class="number">100</span>]</span><br></pre></td></tr></table></figure>
+<p>[cci][0, 100, 14, 9, 8, 7, 7, 7, 7, 7, 7][/cci]</p>
+<p>可以看出 100 层楼， 2 个鸡蛋，最少次数为 14</p>
+<p>via <a href="http://www.datagenetics.com/blog/july22012/index.html" target="_blank" rel="external">The Two Egg Problem</a></p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="preposts/2014-08-16-two-egg-problem.html"
+           data-title="two egg problem" data-url="http://yoursite.com/preposts/2014-08-16-two-egg-problem.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="shen" />
+          <p class="site-author-name" itemprop="name">shen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoshenxyz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="visual studio code 是一个代码编辑器。 和其他编辑器一样， vscode 拥有常见的用户界面： 左边是资源管理器， 显示用到的所有的文件和文件夹； 右边是编辑区， 显示所有打开文件的内容。 
+除此以外， vscode 还有许多独特的特性。 
+文件、 文件夹和项目vscode 是基于文件和文件夹的， 你可以从打开一个文件或者文件夹开始。 
+除此以外， vscode 可以读取和利用定">
+<meta property="og:type" content="website">
+<meta property="og:title" content="visual studio code 基础">
+<meta property="og:url" content="http://yoursite.com/preposts/2015-05-11-vscode-basics.html">
+<meta property="og:site_name" content="Hello April">
+<meta property="og:description" content="visual studio code 是一个代码编辑器。 和其他编辑器一样， vscode 拥有常见的用户界面： 左边是资源管理器， 显示用到的所有的文件和文件夹； 右边是编辑区， 显示所有打开文件的内容。 
+除此以外， vscode 还有许多独特的特性。 
+文件、 文件夹和项目vscode 是基于文件和文件夹的， 你可以从打开一个文件或者文件夹开始。 
+除此以外， vscode 可以读取和利用定">
+<meta property="og:updated_time" content="2016-03-02T16:09:43.819Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="visual studio code 基础">
+<meta name="twitter:description" content="visual studio code 是一个代码编辑器。 和其他编辑器一样， vscode 拥有常见的用户界面： 左边是资源管理器， 显示用到的所有的文件和文件夹； 右边是编辑区， 显示所有打开文件的内容。 
+除此以外， vscode 还有许多独特的特性。 
+文件、 文件夹和项目vscode 是基于文件和文件夹的， 你可以从打开一个文件或者文件夹开始。 
+除此以外， vscode 可以读取和利用定">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> visual studio code 基础 | Hello April </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello April</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                visual studio code 基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-11T22:40:09+08:00" content="2015-05-11">
+              2015-05-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/preposts/2015-05-11-vscode-basics.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="preposts/2015-05-11-vscode-basics.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>visual studio code 是一个代码编辑器。 和其他编辑器一样， vscode 拥有常见的用户界面： 左边是资源管理器， 显示用到的所有的文件和文件夹； 右边是编辑区， 显示所有打开文件的内容。 </p>
+<p>除此以外， vscode 还有许多独特的特性。 </p>
+<h2 id="文件、-文件夹和项目"><a href="#文件、-文件夹和项目" class="headerlink" title="文件、 文件夹和项目"></a>文件、 文件夹和项目</h2><p>vscode 是基于文件和文件夹的， 你可以从打开一个文件或者文件夹开始。 </p>
+<p>除此以外， vscode 可以读取和利用定义在不同的框架和平台下的项目文件。 例如， 如果你打开包含一个或者多个 package.json， project.json， tsconfig.json 或者 ASP.Net v5 Visual Studio 方案和项目文件， vscode 会读取它们并利用它们来提供额外的功能比如编辑器智能感知（IntelliSense）。 </p>
+<h2 id="启动-VSCode"><a href="#启动-VSCode" class="headerlink" title="启动 VSCode"></a>启动 VSCode</h2><p>Vscode 可以从命令行启动来快速打开文件、 文件夹或者项目。 </p>
+<p>打开文件 index.html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code index.html</span><br></pre></td></tr></table></figure>
+<p>打开文件夹 c:\src\Contents</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code c:\src\contents</span><br></pre></td></tr></table></figure>
+<p>vscode 并不区分打开的是文件夹或者项目。 如果打开的文件夹包含项目文件， vscode 会读取这些文件并在状态栏显示它们的上下文。 如果有多个项目， 从状态栏可以切换项目。 </p>
+<p>从文件夹 c:\src\WebApp 文件夹中打开项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code c:\src\webapp</span><br></pre></td></tr></table></figure>
+<p>换句话说， 打开包含项目的文件夹就打开了项目</p>
+<p>打开当前文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code .</span><br></pre></td></tr></table></figure>
+<h2 id="基础布局"><a href="#基础布局" class="headerlink" title="基础布局"></a>基础布局</h2><p>vscode 的简单布局使得你可以最大化编辑区同时又有足够的空间来浏览文件或者项目。 它的界面分为四个部分： </p>
+<ol>
+<li><strong>编辑区</strong> 编辑文件的主要区域， 最多可以打开三个边靠边的编辑区</li>
+<li><strong>侧边栏</strong> 包含像资源管理器的视图来帮助你， 当你在项目中工作时</li>
+<li><strong>状态栏</strong> 指示打开的项目信息或者文件信息</li>
+<li><strong>视图栏</strong> 在最左边， 让你可以在视图之间切换， 并且给你额外的指示信息， 比如激活 Git 后外部变化的数目。</li>
+</ol>
+<p>每次你打开 vscode 后， 它会以你上次退出时保持的状态来打开。 文件夹、 布局和打开的文件得以保留。 </p>
+<p>vscode 允许最多3个可见编辑器使得你可以把3个文件边靠边编辑， 而不是把它们放在不同的标签页中。 </p>
+<p>这样减少了管理标签页所需的时间花费， 但不会限制工作的文件数目。 资源管理器视图使得你可以快速找到你需要的文件。 </p>
+<blockquote>
+<p> 你可以把侧边栏移到右边（ View 菜单 - Move Sidebar ） 或者切换它的可见性（Ctrl + B） </p>
+</blockquote>
+<h2 id="分栏编辑"><a href="#分栏编辑" class="headerlink" title="分栏编辑"></a>分栏编辑</h2><p>使用 vscode 最多可以分三栏编辑</p>
+<p>如果编辑器已经打开，有多重方式可以分栏打开： </p>
+<ul>
+<li>在资源管理器中按住 <code>Ctrl</code> (Mac: <code>Cmd</code>) 点击文件 </li>
+<li><code>Ctrl+\</code> 把当前文件分成两栏</li>
+<li>在资源管理器中文件的右键菜单上选择 <code>Open to the Side</code></li>
+</ul>
+<p>当你打开其他文件时， 被激活的编辑器会显示那个文件的内容。 所以如果你有两个编辑器， 你想在右边的编辑器打开’foo.cs’文件， 确保右边的编辑器是活动的（ 需要点击一下） 。 </p>
+<blockquote>
+<p>你可以调整编辑器的大小和顺序。 拖动编辑器的标题区来移动它们。 </p>
+</blockquote>
+<h2 id="资源管理器"><a href="#资源管理器" class="headerlink" title="资源管理器"></a>资源管理器</h2><p>资源管理器用来浏览， 打开和管理所有项目中的文件和文件夹。 </p>
+<p>在 vscode 中打开文件夹之后， 文件夹的内容会显示在资源管理器中， 你可以： </p>
+<ul>
+<li>创建， 删除， 重命名文件和文件夹</li>
+<li>通过拖动来移动文件和文件夹</li>
+<li>使用右键菜单的选项</li>
+</ul>
+<blockquote>
+<p>你可以把 vscode 外部的文件拖进资源管理器</p>
+</blockquote>
+<p>在资源管理器的顶部是一个叫做 <code>Working Files</code> 的区域。 它是一些活动的文件， 你之前在 vscode 中打开的文件会显示在里面。 举个例子， 如果你</p>
+<ul>
+<li>改变了一个文件</li>
+<li>在资源管理器中双击了文件</li>
+<li>打开了不属于当前文件夹的文件</li>
+</ul>
+<p>那么这个文件会在工作文件部分。</p>
+<p>如果你完成了工作， 可以使用 <code>Close All</code> 来关闭所有工作文件</p>
+<blockquote>
+<p>使用 <code>Ctrl + E</code> 来快速搜索和打开文件</p>
+</blockquote>
+<p>vscode 可以和其他你可能使用的工具一同使用， 特别是命令行工具。 如果你想要在文件夹中打开命令行工具， 右击文件夹然后选择 <code>Open in Console</code>。</p>
+<p>如果你想在系统资源管理器中打开文件或者文件夹， 右键选择 <code>Reveal in Explorer</code> (或者 <code>Reveal in Finder</code> Mac)</p>
+<h2 id="保存-自动保存"><a href="#保存-自动保存" class="headerlink" title="保存/自动保存"></a>保存/自动保存</h2><p>在默认情况下， vscode 需要显式地保存你的更改(<code>Ctrl+S</code>)。 </p>
+<p>但是， 可以使用 <code>Auto Save</code> 在空闲时保存你的更改。 当选了自动保存后， 不再需要显示保存。 如果你在使用文件监视器来自动化工作， 你可能需要关闭自动保存来确保当任务在后台运行时， 你有更大的控制权。 </p>
+<p>可以使用 <code>Ctrl + Shift + P</code> 来打开控制面板， 输入 <code>auto</code>。 </p>
+<p>当然也可以在 <code>File</code> 菜单中选择自动保存。 </p>
+<h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>vscode 可以使用 <code>Ctrl + Shift + F</code> 来搜索。 所有的结果以文件和行的形式显示出来。 打开文件查看出现的位置， 然后点击出现位置在编辑器中查看。 </p>
+<blockquote>
+<p>也可以用正则表达式搜索</p>
+</blockquote>
+<p>可以在搜索栏中按 <code>Ctrl + Shift + J</code> 来开启高级搜索选项。 </p>
+<p>vscode 默认排除了一些文件夹来减少你不感兴趣的搜索结果（ 比如： node_modules） 。 打开设置来改变 <code>search.excludeFolders</code> 部分的规则。 </p>
+<blockquote>
+<p>可以在管理器中右键点击文件夹来选择 <code>Find in Folders</code> 在文件夹中搜索</p>
+</blockquote>
+<h2 id="控制面板"><a href="#控制面板" class="headerlink" title="控制面板"></a>控制面板</h2><p>vscode 也可以通过键盘来操作。 最重要的快捷键是 <code>Ctrl + SHift + P</code>， 可以打开控制面板。 从这里可以使用 vscode 的所有功能， 包括一些常用操作的快捷键。 </p>
+<p>操作面板提供了许多命令， 你可以执行编辑命令， 打开文件， 搜索符号， 使用交互窗口查看文件大纲。 举些例子： </p>
+<ul>
+<li><code>Ctrl + E</code> 通过输入名字将你导航到任意文件或者符号</li>
+<li><code>Ctrl + Tab</code> 将显示后一个打开的文件（切换文件） </li>
+<li><code>Ctrl + Shift + P</code> 显示控制面板中的编辑命令</li>
+<li><code>Ctrl + Shift + O</code> 将你导向文件中的特殊符号</li>
+<li><code>Ctrl + G</code> 跳到文件某一行</li>
+</ul>
+<p>输入 <code>?</code> 可以得到可用的命令列表:</p>
+<h2 id="文件导航"><a href="#文件导航" class="headerlink" title="文件导航"></a>文件导航</h2><p>vscode 提供了快速方便的文件导航。 使用 <code>Ctrl + Tab</code> 查看所有打开的文件。 </p>
+<p>也可以使用 <code>Alt + Left/Right</code> 在文件之间切换</p>
+<blockquote>
+<p>使用 <code>Ctrl + E</code> 打开任意文件</p>
+</blockquote>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="preposts/2015-05-11-vscode-basics.html"
+           data-title="visual studio code 基础" data-url="http://yoursite.com/preposts/2015-05-11-vscode-basics.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="shen" />
+          <p class="site-author-name" itemprop="name">shen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件、-文件夹和项目"><span class="nav-number">1.</span> <span class="nav-text">文件、 文件夹和项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-VSCode"><span class="nav-number">2.</span> <span class="nav-text">启动 VSCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础布局"><span class="nav-number">3.</span> <span class="nav-text">基础布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分栏编辑"><span class="nav-number">4.</span> <span class="nav-text">分栏编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源管理器"><span class="nav-number">5.</span> <span class="nav-text">资源管理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保存-自动保存"><span class="nav-number">6.</span> <span class="nav-text">保存/自动保存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索"><span class="nav-number">7.</span> <span class="nav-text">搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制面板"><span class="nav-number">8.</span> <span class="nav-text">控制面板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件导航"><span class="nav-number">9.</span> <span class="nav-text">文件导航</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoshenxyz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

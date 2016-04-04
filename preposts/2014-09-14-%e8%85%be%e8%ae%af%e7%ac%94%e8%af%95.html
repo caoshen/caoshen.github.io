@@ -1,0 +1,726 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="1.如果 MyClass 为一个类，执行 “MyClass a[5], *b[6];” 语句会自动调用该类构造函数的次数是 
+5 次，*b[6] 没有为对象分配内存，不会调用类构造函数。
+12345678910111213#include &amp;lt;iostream&amp;gt;using namespace std;class MyClass &amp;#123;public:	MyClass() &amp;#123;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="腾讯笔试">
+<meta property="og:url" content="http://yoursite.com/preposts/2014-09-14-%e8%85%be%e8%ae%af%e7%ac%94%e8%af%95.html">
+<meta property="og:site_name" content="Hello April">
+<meta property="og:description" content="1.如果 MyClass 为一个类，执行 “MyClass a[5], *b[6];” 语句会自动调用该类构造函数的次数是 
+5 次，*b[6] 没有为对象分配内存，不会调用类构造函数。
+12345678910111213#include &amp;lt;iostream&amp;gt;using namespace std;class MyClass &amp;#123;public:	MyClass() &amp;#123;">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekbxu384gtj307902j74a.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005yyi5Jjw1ekby9r0zsfj302o01a0sh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekdcnsldm3j30en0akdgt.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/005yyi5Jjw1ekdcnswjnfj30m807cdh1.jpg">
+<meta property="og:updated_time" content="2016-03-02T15:13:26.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="腾讯笔试">
+<meta name="twitter:description" content="1.如果 MyClass 为一个类，执行 “MyClass a[5], *b[6];” 语句会自动调用该类构造函数的次数是 
+5 次，*b[6] 没有为对象分配内存，不会调用类构造函数。
+12345678910111213#include &amp;lt;iostream&amp;gt;using namespace std;class MyClass &amp;#123;public:	MyClass() &amp;#123;">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekbxu384gtj307902j74a.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 腾讯笔试 | Hello April </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello April</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                腾讯笔试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-14T13:29:00+08:00" content="2014-09-14">
+              2014-09-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/preposts/2014-09-14-%e8%85%be%e8%ae%af%e7%ac%94%e8%af%95.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="preposts/2014-09-14-%e8%85%be%e8%ae%af%e7%ac%94%e8%af%95.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.如果 MyClass 为一个类，执行 “MyClass a[5], *b[6];” 语句会自动调用该类构造函数的次数是 </p>
+<p>5 次，*b[6] 没有为对象分配内存，不会调用类构造函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> MyClass &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	MyClass() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"constructor function."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	MyClass a[<span class="number">5</span>], *b[<span class="number">6</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果</p>
+<p><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekbxu384gtj307902j74a.jpg" width="261" height="91" class="alignnone"></p>
+<hr>
+
+<p>2.下面程序的运行结果是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Base &#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Base(<span class="keyword">int</span> b): x(b) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base &#123;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Derived(<span class="keyword">int</span> d): Base(d), y(d) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="function">Base <span class="title">b</span><span class="params">(<span class="number">2</span>)</span></span>;</span><br><span class="line">	<span class="function">Derived <span class="title">d</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">	b.display();</span><br><span class="line">	d.display();</span><br><span class="line">	Base *p = &amp;d;</span><br><span class="line">	p -&gt; display();</span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>b.display(), d.display() 直接调用相应对象的方法，输出 2， 3<br>p -&gt; display() 指针 p 动态绑定到派生类 d ， 输出 3</p>
+<p>动态绑定的两个条件： 1.指定为虚函数的成员函数才能进行动态绑定 2.必须通过基类类型的引用或者指针进行函数调用</p>
+<p>运行结果</p>
+<p><a href="http://ww2.sinaimg.cn/large/005yyi5Jjw1ekby9r0zsfj302o01a0sh.jpg" target="_blank" rel="external"><img src="http://ww2.sinaimg.cn/large/005yyi5Jjw1ekby9r0zsfj302o01a0sh.jpg" width="96" height="46" class="alignnone"></a></p>
+<hr>
+
+<p>3.在 C++ 语言中，下面描述中，正确的是</p>
+<p>A.一个基类的声明中有纯虚函数，该基类派生类一定不再是抽象类<br>B.函数类型不能作为重载函数的调用的依据<br>C.静态数据成员不是所有成员所共有的<br>D.内联函数在运行时是将该函数的目标代码插入每个调用该函数的地方</p>
+<p>A 错误，该基类的派生类可以是抽象类，比如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Base &#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Base(<span class="keyword">int</span> b): x(b) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	 <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base &#123;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Derived(<span class="keyword">int</span> d): Base(d), y(d) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>B 正确<br>函数重载的可行函数必须满足两个条件：<br>1.函数的形参个数和该调用的实参个数相同<br>2.每一个实参的类型必须与对应形参的类型匹配，或者可被隐式转换成对应的形参类型</p>
+<p>C 错误<br>静态数据成员是所有对象共有的</p>
+<p>D 错误<br>内联函数在编译时将该函数的目标代码插入到每个调用该函数的地方</p>
+<p><hr><br>4.有如下程序，执行后的输出结果应该是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Base()&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"BASE"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Derived : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	Derived() &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"DERIVED"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	Derived x;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先调用基类构造函数，再调用派生类构造函数。</p>
+<p>C.BASEDERIVED</p>
+<hr>
+
+<p>5.典型的路由选择方式有两种：静态路由和动态路由。以下描述正确的是</p>
+<p>A.当动态路由和静态路由发生冲突时，以静态路由为准<br>B.当动态路由和静态路由发生冲突时，以动态路由为准<br>C.静态路由适用于网络规模大、网络拓扑复杂的网络<br>D.动态路由适用于网络规模大、网络拓扑复杂的网络</p>
+<p>在一个路由器中，可同时配置静态路由和一种或多种动态路由。它们各自维护的路由表都提供给转发程序，但这些路由表的表项间可能会发生冲突。这种冲突可通过配置各路由表的优先级来解决。通常静态路由具有默认的最高优先级，当其它路由表表项与它矛盾时，均按静态路由转发。</p>
+<p>动态路由适用于网络规模大、网络拓扑复杂的网络。当然，各种动态路由协议会不同程度地占用网络带宽和CPU资源。</p>
+<p>静态路由和动态路由有各自的特点和适用范围，因此在网络中动态路由通常作为静态路由的补充。当一个分组在路由器中进行寻径时，路由器首先查找静态路由，如果查到则根据相应的静态路由转发分组；否则再查找动态路由。</p>
+<p>选 A D</p>
+<p><hr><br>6.下列哪些属于分布式文件系统</p>
+<p>A.HBase<br>B.Spark<br>C.MapReduce<br>D.KFS<br>E.Hive</p>
+<p>选 D</p>
+<p>KFS 是分布式文件系统</p>
+<p>HBase 是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。</p>
+<p>Spark 是UC Berkeley AMP lab所开源的类Hadoop MapReduce的通用的并行计算框架</p>
+<p>MapReduce 是一种编程模型，用于大规模数据集（大于1TB）的并行运算。</p>
+<p>hive 是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。</p>
+<p><hr><br>7.下面程序的输出结果是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line">	a++;</span><br><span class="line">	<span class="keyword">return</span> a + n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k = <span class="number">5</span>;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">		k += fun(i);</span><br><span class="line">	&#125;</span><br><span class="line">	k += fun(i);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; k;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选 B.14</p>
+<p>static 局部对象一旦被创建，在程序结束前都不会被撤销。当定义静态局部对象的函数结束时，静态局部对象不会被撤销。在该函数多次调用的过程中，静态局部对象会持续存在并保持它的值。</p>
+<p><hr><br>8.在 Java 中，以下哪一些数据结构可以以常量的时间复杂度 O(1) 添加元素</p>
+<p>A.HashMap<br>B.ArrayList<br>C.TreeMap<br>D.LinkedList</p>
+<p>选 AD</p>
+<p>ArrayList 插入元素的时间复杂度是 O(N)<br>TreeMap 插入元素的时间复杂度是 O(logN)</p>
+<p><hr><br>9.若一个二叉树的前序遍历顺序为 aebdc, 后序遍历序列尾 bcdea， 则根节点的孩子节点为</p>
+<p>A.只有 e<br>B.有 e b<br>C.有 e c<br>D.无法确定</p>
+<p>选 A.只有 e</p>
+<p>对应二叉树</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    a</span><br><span class="line">   /</span><br><span class="line">  e</span><br><span class="line"> /</span><br><span class="line">b</span><br><span class="line"> \</span><br><span class="line">   d</span><br><span class="line">  /</span><br><span class="line"> c</span><br></pre></td></tr></table></figure>
+<p><hr><br>10.一面墙，单独工作时， A 花 18 小时砌好，B 花 24 小时， C 花 30 小时，现 A B C 的顺序轮流砌，每人工作 1 小时换班，当完工时， B 总共干了多少小时</p>
+<p>7 小时 44 分</p>
+<p>A 每小时 1/18<br>B 每小时 1/24<br>C 每小时 1/30</p>
+<p>1 = 7 * ( 1 / 18 + 1 / 24 + 1 / 30) + 1 / 18 + 11 / 360</p>
+<p>(11 / 360) / (1 / 24) = 44 min</p>
+<p>共需 7 h 44 min</p>
+<p><hr><br>11.32 位机器上定义如下结构体：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> xx &#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> _x1;</span><br><span class="line">	<span class="keyword">char</span> _x2;</span><br><span class="line">	<span class="keyword">int</span> _x3;</span><br><span class="line">	<span class="keyword">char</span> _x4[<span class="number">2</span>];</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> _x5;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> xx::_x5;</span><br></pre></td></tr></table></figure>
+<p>请问 sizeof(xx) 的大小是 </p>
+<p>D.24 字节</p>
+<p>_x1 8 字节<br>_x2 1 字节 -&gt; 4 字节<br>_x3 4 字节<br>_x4 2 字节 -&gt; 4 字节<br>_x5 4 字节</p>
+<p>共有 24 字节</p>
+<p><hr><br>12.存储盒中 2 分和 5 分的硬币个数相等，2 分和 5 分的钱数也相等，问： 可能是多少元</p>
+<p>A.2.1 元<br>B.2.4 元<br>C.2.8 元<br>D.3.0 元</p>
+<p><strong>题目看不明白</strong></p>
+<p>2.1 = 0.07 * 30</p>
+<p>2.4 = 0.07 * 34 + 0.02</p>
+<p>2.8 = 0.07 * 40</p>
+<p>3.0 = 0.07 * 42 + 0.06 </p>
+<p>选 ABCD</p>
+<p><hr><br>13.入栈序列是： a1, a3, a5, a2, a4, a6 ，出栈顺序是： a5, a4, a2, a6, a3, a1，则栈的容量最小是多少</p>
+<p>C.最小是 4</p>
+<p>135 -&gt; 1324 -&gt; 132 -&gt; 136 -&gt; 13 -&gt; 1 -&gt; []</p>
+<p><hr><br>14.TCP 报文首部信息中与关闭连接有关的是</p>
+<p>A.URG<br>B.ACK<br>C.SYN<br>D.FIN</p>
+<p>选 D.FIN.</p>
+<p>FIN = finish 关闭连接</p>
+<p><hr><br>15.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="function">n * <span class="title">foo</span><span class="params">(n - <span class="number">1</span>)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面算法的时间复杂度是多少</p>
+<p>B.O(n)</p>
+<p>递归算法中重复执行的语句主要是调用，所以递归算法的时间复杂度分析主要是分析递归算法中递归函数调用的次数，并给出其调用次数的函数 f(n)</p>
+<p>foo(n) 函数被重复调用了 n 次，f(n) = n, T(n) = O(n)</p>
+<p><hr><br>16.turbo c 环境下，下面程序运行的结果是</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">5</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> *p, **k;</span><br><span class="line">	p = a;</span><br><span class="line">	k = &amp;p;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, *(p++));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, **k);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>D.12</p>
+<p>p 开始指向 1， 后来指向 2</p>
+<hr>
+
+<p>17.现有一个包含 m 个节点的三叉树，即每个节点都有三个指向孩子节点的指针。<br>请问： 在这 3m 个指针中有多少个空指针                                                                                              </p>
+<p>C.2m + 1 个空指针</p>
+<p>非空指针有 m - 1 个（没有指针指向根节点）<br>3m - (m - 1) = 2m + 1</p>
+<hr>
+
+<p>18.在下面的描述中，哪些不属于数据库安全性的措施</p>
+<p>A.普通 zip 压缩存<br>B.关联加密存储<br>C.数据分级<br>D.授权限制<br>E.数据多机备份</p>
+<p>ACE</p>
+<p>数据分级：<br>数据库系统通常采用了3级模式结构并且提供两级映射功能，其中的外模式/模式映射保证了数据库系统具有较高的逻辑独立性，而模式/内模式保证了数据库系统具有较高的物理独立性。</p>
+<p>数据多机备份：<br>数据备份属于数据恢复范畴，不是实现数据安全性的措施。</p>
+<p>实现数据库安全性控制的常用方法和技术有：     </p>
+<p>1) 用户标识和鉴别：该方法由系统提供一定的方式让用户标识自己的名字或身份。每次用户要求进入系统时，由系统进行核对，通过鉴定后才提供系统的使用权。<br>2) 存取控制：通过用户权限定义和合法权检查确保只有合法权限的用户访问数据库，所有未被授权的人员无法存取数据。例如C2级中的自主存取控制（DAC），B1级中的强制存取控制（MAC）<br>3) 视图机制：为不同的用户定义视图，通过视图机制把要保密的数据对无权存取的用户隐藏起来，从而自动地对数据提供一定程度的安全保护。<br>4) 审计：建立审计日志，把用户对数据库的所有操作自动记录下来放入审计日志中， DBA可以利用审计跟踪的信息，重现导致数据库现有状况的一系列事件，找出非法存取数据的人、时间和内容等。<br>5) 数据加密：对存储和传输的数据进行加密处理，从而使得不知道解密算法的人无法获知数据的内容。 </p>
+<hr>
+
+<p>19.以下哪些工具可以测试源机器和目标机器之间的路由数量，以及各路由之间的 RTT</p>
+<p>A.Traceroute B.Ping C.FTP D.Telnet</p>
+<p>选 A</p>
+<p>RTT(Round-Trip Time): 往返时延。在计算机网络中它是一个重要的性能指标，表示从发送端发送数据开始，到发送端收到来自接收端的确认（接收端收到数据后便立即发送确认），总共经历的时延。</p>
+<p>traceroute，现代Linux系统称为 tracepath，Windows系统称为tracert，是一种电脑网络工具。它可显示数据包在IP网络经过的路由器的IP地址。</p>
+<p>ping 是一个DOS命令，一般用于检测网络通或不通 ，也叫时延，其值越大，速度越慢。</p>
+<p>FTP 文件传输协议使得主机间可以共享文件。FTP 是在TCP/IP网络和INTERNET上最早使用的协议之一，它属于网络协议组的应用层。FTP客户机可以给服务器发出命令来下载文件，上传文件，创建或改变服务器上的目录。</p>
+<p>Telnet 协议是TCP/IP协议族中的一员，是Internet远程登陆服务的标准协议和主要方式。它为用户提供了在本地计算机上完成远程主机工作的能力。<br><a href="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekdcnsldm3j30en0akdgt.jpg" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ekdcnsldm3j30en0akdgt.jpg" width="527" height="380" class="alignnone"></a></p>
+<hr>
+
+<p>20.流量劫持是网络中常见的安全威胁，下列哪些情况可能会造成流量劫持</p>
+<p>A.MAC 地址欺骗<br>B.DNS 劫持<br>C.伪造的 DHCP 服务器<br>D.使用 https 协议</p>
+<p>ABC</p>
+<p><a href="http://fex.baidu.com/blog/2014/04/traffic-hijack/" target="_blank" rel="external">《流量劫持是如何产生的？》 by FEX</a></p>
+<hr>
+
+<p>21.一下哪些可以工作于数据链路层</p>
+<p>A.tcpdump B.集线器 C.交换机 D.路由器</p>
+<p>AC</p>
+<p>tcpdump 数据链路层<br>集线器 物理层<br>交换机 数据链路层<br>路由器 网络层</p>
+<hr>
+
+<p>22.UDP 报头中没有下面哪些信息</p>
+<p>A.目的地址 B.窗口大小 C.序列号 D.检验和</p>
+<p>ABC</p>
+<p><a href="http://ww4.sinaimg.cn/large/005yyi5Jjw1ekdcnswjnfj30m807cdh1.jpg" target="_blank" rel="external"><img src="http://ww4.sinaimg.cn/large/005yyi5Jjw1ekdcnswjnfj30m807cdh1.jpg" width="800" height="264" class="alignnone"></a></p>
+<hr>
+
+<p>23.以下方法哪些可以让一个元素浮动起来</p>
+<p>A.inherit B.absolute C.fixed D.static</p>
+<p>A.inherit 规定应该从父元素继承 float 属性的值。</p>
+<p>Position 的属性值共有四个 static、relative、absolute、fixed。</p>
+<hr>
+
+<p>24.在竞赛条件 (race condition) 的情况下，两个线程执行如下代码，其中 count 为共享变量。线程 1 执行代码段 A，线程 2 执行代码段 B， 那么变量 count 的值可能为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int count = 10;</span><br><span class="line">Tread_1() &#123;</span><br><span class="line">    count++;</span><br><span class="line">&#125;</span><br><span class="line">Tread_2() &#123;</span><br><span class="line">    count--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>A.9<br>B.10<br>C.11<br>D.12</p>
+<p>ABC</p>
+<hr>
+
+<p>25.假如 john 看到摆钟的时间是 17：32，请问下这时，时针和分针的最小夹角是多少度</p>
+<p>B.26 度</p>
+<p>32 <em> 6 - (5 + 32 / 60 ) </em> 30 = 26</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="preposts/2014-09-14-%e8%85%be%e8%ae%af%e7%ac%94%e8%af%95.html"
+           data-title="腾讯笔试" data-url="http://yoursite.com/preposts/2014-09-14-%e8%85%be%e8%ae%af%e7%ac%94%e8%af%95.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="shen" />
+          <p class="site-author-name" itemprop="name">shen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoshenxyz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

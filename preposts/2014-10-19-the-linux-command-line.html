@@ -1,0 +1,688 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="The Linux Command Line
+TLCL
+一些简单命令
+date 显示时间
+星期 + 月 + 日 + 时：分：秒 + 时区 + 年
+cal 显示日历
+df 查看磁盘剩余空间的数量
+free 显示空闲内存的数量
+exit 结束终端会话
+文件系统中跳转
+pwd 打印出当前工作目录名
+cd 更改目录
+cd 更改工作目录到主目录
+cd - 更改工作目录到先前的工作目录
+cd ~user_na">
+<meta property="og:type" content="website">
+<meta property="og:title" content="the linux command line">
+<meta property="og:url" content="http://yoursite.com/preposts/2014-10-19-the-linux-command-line.html">
+<meta property="og:site_name" content="Hello April">
+<meta property="og:description" content="The Linux Command Line
+TLCL
+一些简单命令
+date 显示时间
+星期 + 月 + 日 + 时：分：秒 + 时区 + 年
+cal 显示日历
+df 查看磁盘剩余空间的数量
+free 显示空闲内存的数量
+exit 结束终端会话
+文件系统中跳转
+pwd 打印出当前工作目录名
+cd 更改目录
+cd 更改工作目录到主目录
+cd - 更改工作目录到先前的工作目录
+cd ~user_na">
+<meta property="og:updated_time" content="2016-03-02T16:26:12.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="the linux command line">
+<meta name="twitter:description" content="The Linux Command Line
+TLCL
+一些简单命令
+date 显示时间
+星期 + 月 + 日 + 时：分：秒 + 时区 + 年
+cal 显示日历
+df 查看磁盘剩余空间的数量
+free 显示空闲内存的数量
+exit 结束终端会话
+文件系统中跳转
+pwd 打印出当前工作目录名
+cd 更改目录
+cd 更改工作目录到主目录
+cd - 更改工作目录到先前的工作目录
+cd ~user_na">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> the linux command line | Hello April </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello April</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                the linux command line
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-10-19T23:22:00+08:00" content="2014-10-19">
+              2014-10-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/preposts/2014-10-19-the-linux-command-line.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="preposts/2014-10-19-the-linux-command-line.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The Linux Command Line</p>
+<p><a href="http://billie66.github.io/TLCL/book/zh/index.html" target="_blank" rel="external">TLCL</a></p>
+<p>一些简单命令</p>
+<p>date 显示时间</p>
+<p>星期 + 月 + 日 + 时：分：秒 + 时区 + 年</p>
+<p>cal 显示日历</p>
+<p>df 查看磁盘剩余空间的数量</p>
+<p>free 显示空闲内存的数量</p>
+<p>exit 结束终端会话</p>
+<p>文件系统中跳转</p>
+<p>pwd 打印出当前工作目录名</p>
+<p>cd 更改目录</p>
+<p>cd 更改工作目录到主目录</p>
+<p>cd - 更改工作目录到先前的工作目录</p>
+<p>cd ~user_name 更改工作目录到用户主目录</p>
+<p>ls 列出目录内容</p>
+<p>操作系统</p>
+<p>ls dir 列出指定目录下的文件</p>
+<p>ls dir1 dir2 dir3 列出多个目录下的文件</p>
+<p>ls -l 结果以长模式输出，给出更多细节 （权限，所有者，大小，修改时间等）</p>
+<p>多数命令的形式像这样：</p>
+<p>command -options arguments</p>
+<p>也支持长选项，长选项由两个中划线和一个字组成，比如</p>
+<p>ls -lt –reverse</p>
+<p>t 选项按文件修改时间的先后顺序</p>
+<p>reverse 会以相反的顺序输出</p>
+<p>ls -a 显示所有文件，包括隐藏文件</p>
+<p>ls -d 显示当前目录的信息，通常和 -l 连用，可以看到目录的详细信息</p>
+<p>ls -F 给每个所列出的名字分类，添加一个指示符</p>
+<p>ls -h 和 -l 连用，以可读的格式来显示文件大小</p>
+<p>ls -r 以相反顺序来显示结果，通常，ls 命令的输出结果按字母升序排列</p>
+<p>ls -S 按文件大小排列 (size)</p>
+<p>ls -t 按修改的时间顺序排列</p>
+<p>file 打印文件内容的简单描述</p>
+<p>less 浏览文件，可以上下翻页</p>
+<p>page up or b 向后翻滚一页 backward</p>
+<p>page down or space or f 向前翻滚一页 forward</p>
+<p>up arrow 向前移动一行</p>
+<p>down arrow 向后移动一行</p>
+<p>G 移动到最后1行</p>
+<p>1G or g 移动到第一行</p>
+<p>/characters 查找字符串</p>
+<p>n 向前查找下一个出现的字符串</p>
+<p>h 帮助</p>
+<p>q 退出 less 程序</p>
+<p>less is more. less 程序是 more 程序的加强版</p>
+<p>linux 系统中的目录</p>
+<p>/ 根目录</p>
+<p>/bin 包含系统启动和运行所必须的二进制程序</p>
+<p>/boot 包含 linux 内核，最初的 RMA 磁盘映像 （系统启动时，由驱动程序所需），和启动加载程序。</p>
+<p>/dev 包含设备节点的特殊目录。“一切都是文件”，也适用于设备。在这个目录里，内核维护着它支持的设备</p>
+<p>/etc 包含所有系统层面的配置文件。也包含一系列的 shell 脚本，在系统启动时，这些脚本会运行每个系统服务。</p>
+<p>/home 用户目录</p>
+<p>/lib 包含核心系统程序所需的库文件。这些文件与 windows 中的动态链接库相似</p>
+<p>/lost + found 每个使用 linux 文件系统的格式化分区或者设备，例如 ext3 文件系统，都会有这个目录。当恢复一个损坏的文件系统时，会用到这个目录。</p>
+<p>/media 包含可移除媒体设备的挂载点，如 usb， cd-rom</p>
+<p>/opt 用来安装可选的软件</p>
+<p>/proc 由 linux 内核维护的虚拟文件系统</p>
+<p>/root root 账户的主目录</p>
+<p>/sbin 包含系统的二进制文件。通常为超级用户保留</p>
+<p>/tmp 存储各种程序创建的临时文件</p>
+<p>/usr 包含普通用户所需要的所有程序和文件</p>
+<p>/usr/bin 包含系统安装的可执行程序</p>
+<p>/usr/lib 包含 /usr/bin 中的程序所使用的共享库</p>
+<p>/usr/local 非系统发行版自带，却打算让系统使用的程序的安装目录。 通常，由源码编译的程序会安装在/usr/local/bin 目录下。</p>
+<p>/usr/sbin 包含许多系统管理程序</p>
+<p>/usr/share /usr/bin 中程序使用的共享数据</p>
+<p>/var 可能需要改动的文件存储的地方。各种数据库，假脱机文件，用户邮件等</p>
+<p>/var/log 包含日志文件，各种系统活动的记录</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="preposts/2014-10-19-the-linux-command-line.html"
+           data-title="the linux command line" data-url="http://yoursite.com/preposts/2014-10-19-the-linux-command-line.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="shen" />
+          <p class="site-author-name" itemprop="name">shen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoshenxyz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="vim 图示
+原图 vim tutorial
+
+lesson 1
+
+编辑
+h j k l左 下 上 右
+i / I 插入模式i 光标处插入文字I 行首插入
+x / X 删除X 删除光标左边字符
+a / A 追加A 在行尾追加
+u 撤销ctrl + r 恢复
+0 / $ 跳到行首/尾
+^ 跳到本行第一个分空字符
+w / b / e下一个 word / 前一个 word / word 尾
+W / B">
+<meta property="og:type" content="website">
+<meta property="og:title" content="vim tutorial">
+<meta property="og:url" content="http://yoursite.com/preposts/2014-09-11-vim-tutorial.html">
+<meta property="og:site_name" content="Hello April">
+<meta property="og:description" content="vim 图示
+原图 vim tutorial
+
+lesson 1
+
+编辑
+h j k l左 下 上 右
+i / I 插入模式i 光标处插入文字I 行首插入
+x / X 删除X 删除光标左边字符
+a / A 追加A 在行尾追加
+u 撤销ctrl + r 恢复
+0 / $ 跳到行首/尾
+^ 跳到本行第一个分空字符
+w / b / e下一个 word / 前一个 word / word 尾
+W / B">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8ati950og30sg0k4tcq.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8ati8cbsg30sg0k4wh3.gif">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8atieeufg30sg0k4q5t.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atibnnyg30sg0k4wgr.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atie6uxg30sg0k4q5g.gif">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8ati0twsg30sg0k4mzi.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atjbjxcg30sg0k4q5l.gif">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8atjeo32g30sg0k4ad7.gif">
+<meta property="og:updated_time" content="2016-03-02T15:13:26.291Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vim tutorial">
+<meta name="twitter:description" content="vim 图示
+原图 vim tutorial
+
+lesson 1
+
+编辑
+h j k l左 下 上 右
+i / I 插入模式i 光标处插入文字I 行首插入
+x / X 删除X 删除光标左边字符
+a / A 追加A 在行尾追加
+u 撤销ctrl + r 恢复
+0 / $ 跳到行首/尾
+^ 跳到本行第一个分空字符
+w / b / e下一个 word / 前一个 word / word 尾
+W / B">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8ati950og30sg0k4tcq.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> vim tutorial | Hello April </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello April</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vim tutorial
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-11T10:44:00+08:00" content="2014-09-11">
+              2014-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/" itemprop="url" rel="index">
+                    <span itemprop="name"></span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/preposts/2014-09-11-vim-tutorial.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="preposts/2014-09-11-vim-tutorial.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>vim 图示</strong></p>
+<p><a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html" target="_blank" rel="external">原图 vim tutorial</a></p>
+<p><a href="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8ati950og30sg0k4tcq.gif" target="_blank" rel="external"><img src="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8ati950og30sg0k4tcq.gif" width="1024" height="724" class="alignnone"></a></p>
+<p><strong>lesson 1</strong></p>
+<p><a href="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8ati8cbsg30sg0k4wh3.gif" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8ati8cbsg30sg0k4wh3.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>编辑</p>
+<p>h j k l<br>左 下 上 右</p>
+<p>i / I 插入模式<br>i 光标处插入文字<br>I 行首插入</p>
+<p>x / X 删除<br>X 删除光标左边字符</p>
+<p>a / A 追加<br>A 在行尾追加</p>
+<p>u 撤销<br>ctrl + r 恢复</p>
+<p>0 / $ 跳到行首/尾</p>
+<p>^ 跳到本行第一个分空字符</p>
+<p>w / b / e<br>下一个 word / 前一个 word / word 尾</p>
+<p>W / B / E<br>下一个 WORD / 前一个 WORD / WORD 尾</p>
+<p>word 指连续字母或者连续标点符号，比如 abc , :: 是 word<br>WORD 指连续非空字符， 比如 foo(bar) , xyz__t 是 WORD</p>
+<p>r / R 替换<br>r 替换单个字符<br>R 替换多个字符</p>
+<p>:w / :q 保存 / 退出</p>
+<p><strong>lesson 2</strong></p>
+<p><a href="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8atieeufg30sg0k4q5t.gif" target="_blank" rel="external"><img src="http://ww3.sinaimg.cn/large/005yyi5Jjw1ek8atieeufg30sg0k4q5t.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>操作和重复</p>
+<p>f / F<br>使用方法：<br>fx 在当前行,光标向前（右）寻找 x 第一次出现的地方。<br>Fx 在当前行,光标向后（左）寻找 x 第一次出现的地方。</p>
+<p>t / T<br>类似 f / F，不过找到的是第一次出现的地方的左 / 右边 (till)。</p>
+<p>d 删除<br>一般和表示位置的动作连用<br>dw 删除一个词<br>dd 删除一行<br>D 删除到行尾<br>df- 删除到 - 第一次出现的位置（包括 -）</p>
+<p>c 删除后进入插入模式</p>
+<p>. 在当前位置，重复上一次的编辑命令</p>
+<p><strong>lesson 3</strong></p>
+<p><a href="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atibnnyg30sg0k4wgr.gif" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atibnnyg30sg0k4wgr.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>复制和粘贴</p>
+<p>y 复制<br>Y 复制一行</p>
+<p>p 粘贴<br>p / P 光标之后（前）粘贴</p>
+<p>y 可以在 可视模式 中使用</p>
+<p>d c x 在删除的同时也复制了内容</p>
+<p>“ 和 a - z 加上 y<br>选择一个寄存器来复制</p>
+<p>A - Z 加上 y<br>追加复制 (append-copy)</p>
+<p>“* 或 “+ 选择系统剪切板</p>
+<p>o / O 在当前行下方（上方）插入</p>
+<p><strong>lesson 4</strong></p>
+<p><a href="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atie6uxg30sg0k4q5g.gif" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atie6uxg30sg0k4q5g.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>搜索</p>
+<p>/ 搜索</p>
+<p>? 向后搜</p>
+<p>n / N 跳到下（上）一个搜索位置</p>
+<ul>
+<li>/ # 向前（后）搜索 光标所指的表达式</li>
+</ul>
+<p>搜索的是正则表达式<br>如<br>a*b 表示 0 个或多个 a 后面跟一个 b<br>^abc 表示 ‘abc’ 出现在行首<br>[0-9] 表示 0 - 9 中的一个数字</p>
+<p><strong>lesson 5</strong></p>
+<p><a href="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8ati0twsg30sg0k4mzi.gif" target="_blank" rel="external"><img src="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8ati0twsg30sg0k4mzi.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>标记和宏</p>
+<p>m 后面跟 a - z 可以设置标记</p>
+<p>` 跳到标记</p>
+<p>‘ 跳到标记所在行的行首</p>
+<p>q 后面跟 a - z 可以记录<br>再次使用 q 停止记录</p>
+<p>@ 加 a - z<br>使用记录的宏</p>
+<p><strong>lesson 6</strong></p>
+<p><a href="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atjbjxcg30sg0k4q5l.gif" target="_blank" rel="external"><img src="http://ww1.sinaimg.cn/large/005yyi5Jjw1ek8atjbjxcg30sg0k4q5l.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>其他动作</p>
+<p>% 在括号之间跳转 () , [] , {}</p>
+<p>H M L 跳到屏幕 上方 中间 下方</p>
+<p>G 跳到文件尾，或第 # 行<br>比如<br>10G 跳到第 10 行</p>
+<p>gg 跳到首行</p>
+<ul>
+<li>/ + 跳到上 / 下一行</li>
+</ul>
+<p>K 跳到光标所指表达式的帮助文档（如果有）</p>
+<p>( 和 ) 跳到上（下）一个句子</p>
+<p>{ 和 } 跳到上（下）一个段落（空行）</p>
+<p>句子以 . ! ? 结尾</p>
+<p>段落以 空行 结尾</p>
+<p>[[ 跳到上一个处在第 0 列的 {<br>]] 跳到下一个处在第 0 列的 {</p>
+<p><strong>lesson 7</strong></p>
+<p><a href="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8atjeo32g30sg0k4ad7.gif" target="_blank" rel="external"><img src="http://ww2.sinaimg.cn/large/005yyi5Jjw1ek8atjeo32g30sg0k4ad7.gif" width="1024" height="724" class="alignnone"></a></p>
+<p>其他命令</p>
+<p>J 连接当前行和下一行<br>或者 连接可视模式块中的所有行</p>
+<p>r / R 替换一个 / 多个字符</p>
+<p>C 等于 c$<br>改变到行尾（删除后插入）</p>
+<p>D 等于 d$<br>删除到行尾</p>
+<p>Y 等于 yy<br>复制一行</p>
+<p>s / S 删除一个字符 / 一行 后进入插入模式</p>
+<blockquote>
+<p>/ &lt; 缩进（取消缩进）</p>
+</blockquote>
+<p>= 自动格式化</p>
+<p>~ 改变大小写</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="preposts/2014-09-11-vim-tutorial.html"
+           data-title="vim tutorial" data-url="http://yoursite.com/preposts/2014-09-11-vim-tutorial.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.jpg"
+               alt="shen" />
+          <p class="site-author-name" itemprop="name">shen</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shen</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"caoshenxyz"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
