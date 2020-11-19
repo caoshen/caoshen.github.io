@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder - okclouder 的博客</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/page/9/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.okclouder.cn/null">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.okclouder.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/page/9/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-20 00:13:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">okclouder</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Application%20%E7%9A%84%20onCreate%20%E5%92%8C%20attachBaseContext/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Application%20%E7%9A%84%20onCreate%20%E5%92%8C%20attachBaseContext/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.675Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Application 的 onCreate 和 attachBaseContextApplication 的 onCreate 和 attachBaseContext 是 Application 的两个回调方法，通常我们会在其中做一些初始化操作。
+onCreate 和 attachBaseContext 顺序Application 的 attachBaseContext 在 onCreate 之前执行。
+handleBindApplicationApp 的 application 创建是在 ActivityThread 的 handleBindApplication 方法完成的。
+123456789101112131415161718192021222324private void handleBindApplication(AppBindData data) &#123;    ...    // If the app is Honeycomb MR1 or earlier, switch its AsyncTask    // implementation to use the  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/AsyncTask%20%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/AsyncTask%20%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.675Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">AsyncTask 异步任务AsyncTask 是 Android 的异步任务类，它本质上是对 Thread 和 Handler 的封装，达到工作线程执行异步任务，执行完毕后切换到主线程的功能。
+AsyncTask 的执行顺序以 SDK 28 为例，默认情况下，调用 execute 方法，AsyncTask 的任务都是串行的。比如有 10 个 AsyncTask 同时开始执行，实际上当前一个 AsyncTask 执行完毕后，下一个AsyncTask 才会真正开始执行。
+1234@MainThreadpublic final AsyncTask&lt;Params, Progress, Result&gt; execute(Params... params) &#123;    return executeOnExecutor(sDefaultExecutor, params);&#125;
+
+以上代码可以看出，默认使用了 sDefaultExecutor 来执行异步任务。
+1private static volatile Executor sDefaultExecutor = SERI ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.674Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的适配器模式适配器模式介绍适配器模式在我们的开发中使用率极高，从代码中随处可见的 Adapter 就可以判断出来。从最早的 ListView、GridView 到现在最新的 RecyclerView 都需要使用 Adapter。
+适配器模式的定义适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够一起工作。
+Android 源码中的适配器模式在开发过程中，ListView 的 Adapter 是我们最常见的类型之一。
+ListView 中并没有 Adapter 相关的成员变量，其实 Adapter 在 ListView 的父类 AbsListView 中，AbsListView 是一个列表控件的抽象。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960public abstract class AbsListView extends Adapt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.674Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码设计模式总结设计模式可以按照创建型设计模式、结构型设计模式、行为型设计模式分为 3 类，共 23 种设计模式。
+创建型设计模式创建型设计模式共有 5 种。
+工厂方法 Factory Method
+Android 源码的工厂方法模式
+抽象工厂 Abstract Factory
+Android 源码的抽象工厂模式
+建造者 Builder
+Android 源码的建造者模式
+原型 Prototype
+Android 源码的原型模式
+单例 Singleton
+Android 源码的单例模式
+结构型设计模式结构型设计模式共有 7 种。
+适配器 Adapter
+Android 源码的适配器模式
+桥接 Bridge
+Android 源码的桥接模式
+组合 Composite
+Android 源码的组合模式
+装饰者 Decorator
+Android 源码的装饰者模式
+外观 Facade
+Android 源码的外观模式
+享元 Flyweight
+Android 源码的享元模式
+代理 Proxy
+Android 源码的代理模式
+行为型设计模式行为型设计模式共有 11 种。
+解释器 Int ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.674Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的单例模式单例模式可以保证在内存中只有一个实例，可以避免对象频繁地创建与消耗。
+下面以 android 29 为例，看 2 种单例的实现。
+SystemServiceRegistry 的 LayoutInflaterContext 的实现类 ContextImpl 中保存了所有 Service 本地代理的缓存。常用的 Context 的 getSystemService 方法就是从  SystemServiceRegistry 中获取 Service。因为缓存在一个 ArrayMap 中，所以每次 get 到的都是同一个实例，这样就实现了单例模式。
+SystemServiceRegistry 类的实现如下：
+1234567891011121314151617181920212223final class SystemServiceRegistry &#123;    private static final String TAG = &quot;SystemServiceRegistry&quot;;    // Service registry informati ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E7%9F%A5%E8%AF%86%E8%B7%AF%E7%BA%BF/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E7%9F%A5%E8%AF%86%E8%B7%AF%E7%BA%BF/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.674Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 知识路线核心知识点Android 四大组件Activity
+Activity 难点
+Service
+Service 难点
+ContentProvider
+ContentProvider 难点
+ContentProvider 的 query 流程分析
+ViewView 的绘制
+View 的绘制流程
+事件分发
+View 的绘制流程
+RemoteViewsAndroid RemoveViews
+Window 和 ViewRootImpl
+Android Window
+跨进程通信Binder
+Binder 笔记
+AIDL
+AIDL
+多进程
+Android 中的 IPC 方式
+消息机制消息队列 
+Android 消息机制
+AsyncTask 原理
+AsyncTask 异步任务
+FrameworkAMS
+WMS
+PMS
+Android setPackagesSuspended 暂停应用
+开源库原理网络OkHttp
+Okhttp 基本用法
+OkHttp 源码解析
+Retrofit
+Retrofit 基本用法
+Retrofit 源码分析
+图片Glide
+异步操作Rxjava
+Andro ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.673Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的解释器模式解释器模式介绍解释器模式是一种用得比较少的行为型模式，其提供了一种解释语言的语法或表达式的方式。该模式定义了一个表达式接口，通过该接口解释一个特定的上下文。
+解释器模式的定义给定一个语言，定义它的文法的一种表示，并定义一个解释器，该解释器使用该表示来解释语言中的句子。
+PackageParserAndroid 的 PackageParser 类对 AndroidManifest.xml 中的每一个组件标签创建了相应的类用以存储相应的信息。
+12345678public final static class Activity extends Component&lt;ActivityIntentInfo&gt; implements Parcelable &#123;...public final static class Service extends Component&lt;ServiceIntentInfo&gt; implements Parcelable &#123;...public final static class Provider e ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.673Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的访问者模式访问者模式介绍访问者模式是一种将数据操作与数据结构分离的设计模式，它是 23 种设计模式中最复杂的一个，但是它的使用频率并不高，正如《设计模式》的作者 GOF 对访问者模式的描述：大多数情况下，并不需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。
+访问者模式的基本想法是，软件系统中拥有一个由许多对象构成的、比较稳定的对象结构，这些对象的类都拥有一个 accept 方法用来接受访问者对象的访问。访问者是一个接口，它拥有一个 visit 方法，这个方法对访问到的对象结构中不同类型的元素做出不同的处理。在对象结构的每一次访问过程中，我们遍历整个对象结构，对每一个元素都实施 accept 方法，在每一个元素的 accept 方法中会调用访问者的 visit 方法，从而使访问者得以处理对象结构的每一个元素，我们可以针对对象结构设计不同的访问者类来完成不同的操作，达到区别对待的效果。
+访问者模式的定义封装一些作用于某种数据结构中的各元素的操作，他可以在不改变这个数据结构的前提下定义作用于这些元素的新的操作。
+Android 源码中的访问者模式An ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.673Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的迭代器模式迭代器模式的介绍迭代器模式（Iterator Pattern） 又称为游标（Cursor）模式，是行为型设计模式之一。迭代器模式是一个比较古老的设计模式，其源于对容器的访问，比如 Java 中的 List、Map、数组等。
+迭代器模式的定义提供一个方法顺序访问一个容器对象中的各个元素，而又不需要暴露该对象的内部表示。
+Android 源码中的迭代器模式Android 中典型的迭代器模式例子是数据库查询使用 Cursor，当我们使用 SQLiteDatabase 的 query 方法查询数据时，会返回一个 Cursor 游标对象，该游标对象实质就是一个具体的迭代器，我们可以使用它遍历数据库查询所得到的结果集。
+首先定义一个 SQLiteOpenHelper。
+123456789101112131415161718public class DBHelper extends SQLiteOpenHelper &#123;    public DBHelper(Context context) &#123;        super(context, &quot ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.673Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的责任链模式责任链模式介绍责任链模式是行为型设计模式之一。多个节点首尾相连接所构成的模型称为链。对于链式结构，每个节点都可以被拆开再连接，因此，链式结构也具有很好的灵活性。将这样一种结构应用于编程领域，将每一个节点看作是一个对象，每一个对象拥有不同的处理逻辑，将一个请求从链式的首端发出，沿着链的路径依次传递给每一个节点对象，直至有对象处理这个请求为止。我们将这种模式称为责任链模式。
+责任链模式的定义使多个对象都有机会处理请求，从而避免了请求的发送者和接收者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，只到有对象处理它为止。
+ViewGroup 的 dispatchTouchEvent责任链模式在 Android 源码中比较类似的实现是 View 的 MotionEvent 事件分发。每当用户接触屏幕的时候，Android 都会将对应的事件包装成一个事件对象从 ViewTree 的顶部自上而下地分发传递。
+ViewGroup 的 dispatchTouchEvent 方法如下：
+1234567891011121314151617181920212223 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/8/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">137</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">4</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-19T16:13:58.717Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

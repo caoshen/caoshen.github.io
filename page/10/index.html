@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder - okclouder 的博客</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/page/10/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.okclouder.cn/null">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.okclouder.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/page/10/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-20 00:13:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">okclouder</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.672Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的策略模式策略模式介绍实现某一个功能可以有多种算法或者策略，我们根据实际情况选择不同的算法或者策略来完成该功能。例如，排序算法，可以使用插入排序、归并排序、冒泡排序等。
+如果将这些算法或者策略抽象出来，提供一个统一的接口，不同的算法或者策略有不同的实现类，这样在程序客户端就可以通过注入不同的实现对象来实现算法或者策略的动态替换，这种模式的可扩展性、可维护性也就更高，也就是我们说的策略模式。
+策略模式的定义策略模式定义了一系列的算法，并将每一个算法封装起来，而且使它们还可以相互替换。策略模式让算法独立于使用它的客户而独立变化。
+时间插值器Android 的 TimeInterpolator 时间插值器可以根据时间流逝的百分比计算出当前属性值改变的百分比。系统预置的有线性插值器 LinearInterpolator、加速减速插值器 AccelerateDecelerateInterpolator、减速插值器 DecelerateInterpolator 和其他一些插值器。
+LinearInterpolator线性插值器的代码如下：
+1234567public class ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.672Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的组合模式组合模式介绍组合模式（Composite Pattern）也称为部分整体模式（Part-Whole Pattern），结构型设计模式之一。
+组合模式比较简单，它将一组相似的对象看作一个对象处理，并根据一个树状结构来组合对象，然后提供一个统一的方法去访问相应的对象，以此忽略掉对象与对象集合之间的差别。
+组合模式的定义将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。
+Android 源码中的组合模式实现Android 中的 View 和 ViewGroup 的嵌套组合是一个典型的组合模式实现。
+在 Android 的这个视图层级中，容器一定是 ViewGroup，而且只有 ViewGroup 才能包含其他的 View，比如 LinearLayout 能包含 TextView、Button、CheckBox 等，但是反过来 TextView 是不能包含 LinearLayout 的，因为 TextView 直接继承于 View，其并非一个容器。
+1234567891011121314151617181920212 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.672Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的装饰者模式装饰者模式介绍装饰者模式（Decorator Pattern）也称为包装模式 （Wrapper Pattern），结构型设计模式之一，其使用一种对客户端透明的方式来动态地扩展对象地功能，同时它也是继承关系的一种替代方案之一。
+装饰者模式的定义动态地给一个对象添加一些额外的职责。就增加功能来说，装饰者模式相比生成子类更为灵活。
+装饰模式的使用场景需要透明且动态地扩展类的功能时使用。
+Android 源码中的装饰模式Context 类在 Android 中被称为“上帝对象”，它本质是一个抽象类，其在我们装饰者模式里相当于抽象组件，而在其内部定义了大量的抽象方法，比如我们经常会用到的 startActivity 方法。
+123456...public abstract void startActivity(@RequiresPermission Intent intent);...public abstract void startActivity(@RequiresPermission Intent intent,        @Nullable Bund ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.672Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的观察者模式观察者模式介绍观察者模式是一个使用率非常高的模式，它最常用的地方是 GUI 系统、订阅-发布系统。因为这个模式的一个非常重要的作用就是解耦，将被观察者和观察者解耦，使得它们之间的依赖性更小，甚至做到毫无依赖。以 GUI 系统来说，应用的 UI 具有易变性，尤其是前期随着业务的改变或者产品的需求修改，应用界面也会经常性变化，但是业务逻辑基本变化不大，此时，GUI 系统需要一套机制来应对这种情况，使得 UI 层与具体的业务逻辑解耦，观察者模式此时就派上用场了。
+观察者模式的定义定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。
+ListView 的 notifyDataSetChangedListView 是 Android 中最重要的控件之一，而 ListView 最重要的一个功能就是 Adapter。通常，在我们往 ListView 添加数据后，都会调用 Adapter 的 notifyDataSetChanged 方法。
+notifyDataSetChanged 方法定义在 BaseAdapter  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.671Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的模板方法模式模板方法模式介绍在面向对象开发过程中，通常会遇到这样的一个问题，我们知道一个算法所需的关键步骤，并确定了这些步骤的执行顺序，但是某些步骤的具体实现是未知的，或者说某些步骤的实现是会随着环境的变化而改变的。
+例如，执行程序的流程大致如下：
+
+检查代码的正确性
+链接相关的类库
+编译相关代码
+执行程序
+
+对于不同的程序设计语言，上述 4 个步骤都是不一样的，但是它们的执行流程都是固定的，这类问题的解决方案就是模板方法模式。
+模板方法模式的定义定义一个操作中的算法的框架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+Android 源码中的模板方法模式在 Android 中，AsyncTask 是一个比较常用的类型，这个类就使用了模板方法模式。
+AsyncTask 的整个执行过程其实是一个框架，具体的实现都需要子类来完成，而且它执行的算法框架是固定的，调用 execute 后会依次执行 onPreExecute、doInBackground、onPostExecute，当然也可以通过 onProgressUpdat ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.671Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的状态模式状态模式介绍状态模式中的行为是由状态来决定的，不同的状态下有不同的行为。状态模式和策略模式的结构几乎完全一样，但它们的目的、本质却完全不一样。状态模式的行为是平行的、不可替换的，策略模式的行为是彼此独立、可相互替换的。用一句话来表述，状态模式把对象的行为包装在不同的状态对象里，每一个状态对象都有一个共同的抽象状态基类。状态模式的意图是让一个对象在其内部状态改变的时候，其行为也随之改变。
+状态模式的定义当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类。
+StateMachineAndroid 的 Wifi 状态切换会使用 WifiController 类。
+12345/** * WifiController is the class used to manage on/off state of WifiStateMachine for various operating * modes (normal, airplane, wifi hotspot, etc.). */public class WifiController extend ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.670Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的外观模式外观模式介绍外观模式（Facade）在开发过程中的运用频率非常高，尤其是在现阶段各种第三方 SDK 充斥在我们的周边，而这些 SDK 很大概率会使用外观模式。通过一个外观类使得整个系统的接口只有一个统一的高层接口，这样能够降低用户的使用成本，也对用户屏蔽了很多实现细节。当然，在我们的开发过程中，外观模式也是我们封装 API 的常用手段，例如网络模块、ImageLoader模块等。
+外观模式定义要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。外观模式（Facade 模式）提供一个高层次的接口，使得子系统更易于使用。
+Android 源码中的外观模式在用 Android 开发过程中，Context 是最重要的一个类型。Context 只是一个抽象类，它的真正实现在 ContextImpl 类中，ContextImpl 就是今天我们要分析的外观类。
+在应用启动时，首先会 fork 一个子进程，并且调用 ActivityThread 的 main 方法启动该进程。ActivityThread 又会构建 Application 对象，然后和 Activ ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.670Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的工厂方法模式工厂方法模式介绍工厂方法模式（Factory Pattern），是创建型设计模式之一。工厂方法模式是一种结构简单的模式，比如 Android 中的 Activity 里的各个生命周期方法，以 onCreate 方法为例，它可以看作是一个工厂方法，我们在其中可以构造 View，通过 setContentView 返回给 framework 处理。
+工厂方法模式的定义工厂方法模式定义一个用于创建对象的接口，让子类决定实例化哪个类。
+Iterable以 List 和 Set 为例，List 和 Set 都继承于 Collection 接口，而 Collection 接口继承于 Iterable 接口，Iterable 接口很简单，有一个 iterator 方法。Java 1.8 定义了 forEach 和 spliterator 方法。
+1234public interface Iterable&lt;T&gt; &#123;    Iterator&lt;T&gt; iterator();    ...&#125;
+
+ArrayListArrayList  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.670Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的建造者模式建造者模式可以将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+以 android 29 的代码为例，介绍 AlertDialog.Builder 和 ActivityStarter.Request。
+AlertDialog.BuilderAndroid 对话框 AlertDialog 的构建过程是一个典型的建造者模式，它的构造依赖内部类 Builder。
+1234567891011121314151617181920212223242526272829303132333435    public static class Builder &#123;        @UnsupportedAppUsage        private final AlertController.AlertParams P;        ...        public Builder(Context context) &#123;            this(context, resolveDialogTheme(context, R ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.670Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 源码的抽象工厂模式抽象工厂模式介绍抽象工厂模式也是创建型模式之一。抽象工厂模式起源于以前对不同操作系统的图形化解决方案。如不同操作系统中的按钮和文本框控件实现不同，展示效果也不一样，对于每个操作系统，其本身就构成一个产品类，而按钮与文本框控件也构成一个产品类，两种产品类两种变化，各自有自己的特性。
+抽象工厂模式的定义为创建一组相关或者是相互依赖的对象提供一个接口，而不需要指定它们的具体类。
+MediaPlayerFactoryMediaPlayerFactory 是一个用来创建 MediaPlayer 的工厂类。
+12345678910sp&lt;MediaPlayerBase&gt; MediaPlayerFactory::createPlayer(        player_type playerType,        const sp&lt;MediaPlayerBase::Listener&gt; &amp;listener,        pid_t pid) &#123;    sp&lt;MediaPlayerBase&gt; p;...    p = ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">137</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">4</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-19T16:13:58.717Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

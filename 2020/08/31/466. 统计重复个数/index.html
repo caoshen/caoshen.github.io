@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder | okclouder</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="466. 统计重复个数由 n 个连接的字符串 s 组成字符串 S，记作 S &#x3D; [s,n]。例如，[“abc”,3]&#x3D;“abcabcabc”。 如果我们可以从 s2 中删除某些字符使其变为 s1，则称字符串 s1 可以从字符串 s2 获得。例如，根据定义，”abc” 可以从 “abdbec” 获得，但不能从 “acbbe” 获得。 现在给你两个非空字符串 s1 和 s2（每个最多 100 个字符长">
+<meta property="og:type" content="article">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/2020/08/31/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:description" content="466. 统计重复个数由 n 个连接的字符串 s 组成字符串 S，记作 S &#x3D; [s,n]。例如，[“abc”,3]&#x3D;“abcabcabc”。 如果我们可以从 s2 中删除某些字符使其变为 s1，则称字符串 s1 可以从字符串 s2 获得。例如，根据定义，”abc” 可以从 “abdbec” 获得，但不能从 “acbbe” 获得。 现在给你两个非空字符串 s1 和 s2（每个最多 100 个字符长">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2020-08-31T13:54:09.664Z">
+<meta property="article:modified_time" content="2020-08-31T13:54:09.664Z">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/2020/08/31/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-08-31 21:54:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-31T13:54:09.664Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-08-31T13:54:09.664Z" title="更新于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="466-统计重复个数"><a href="#466-统计重复个数" class="headerlink" title="466. 统计重复个数"></a>466. 统计重复个数</h1><p>由 n 个连接的字符串 s 组成字符串 S，记作 S = [s,n]。例如，[“abc”,3]=“abcabcabc”。</p>
+<p>如果我们可以从 s2 中删除某些字符使其变为 s1，则称字符串 s1 可以从字符串 s2 获得。例如，根据定义，”abc” 可以从 “abdbec” 获得，但不能从 “acbbe” 获得。</p>
+<p>现在给你两个非空字符串 s1 和 s2（每个最多 100 个字符长）和两个整数 0 ≤ n1 ≤ 106 和 1 ≤ n2 ≤ 106。现在考虑字符串 S1 和 S2，其中 S1=[s1,n1] 、S2=[s2,n2] 。</p>
+<p>请你找出一个可以满足使[S2,M] 从 S1 获得的最大整数 M 。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">s1 &#x3D;&quot;acb&quot;,n1 &#x3D; 4</span><br><span class="line">s2 &#x3D;&quot;ab&quot;,n2 &#x3D; 2</span><br><span class="line"></span><br><span class="line">返回：</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-the-repetitions">https://leetcode-cn.com/problems/count-the-repetitions</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先考虑 s2 在 S1 中出现的循环节，然后根据循环节中出现的 s1 和 s2 的个数计算得到 s2 出现的总数，最后除以 n2 得到 S2 出现的次数。</p>
+<p>建议参考官方题解：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/count-the-repetitions/solution/tong-ji-zhong-fu-ge-shu-by-leetcode-solution/">https://leetcode-cn.com/problems/count-the-repetitions/solution/tong-ji-zhong-fu-ge-shu-by-leetcode-solution/</a></p>
+<h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMaxRepetitions</span><span class="params">(String s1, <span class="keyword">int</span> n1, String s2, <span class="keyword">int</span> n2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n1 == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 寻找循环节过程中 s1 出现的个数</span></span><br><span class="line">        <span class="keyword">int</span> s1Count = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 寻找循环节过程中 s2 出现的个数</span></span><br><span class="line">        <span class="keyword">int</span> s2Count = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// s2 的索引</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 保存索引对应的 s1、s2 个数</span></span><br><span class="line">        HashMap&lt;Integer, <span class="keyword">int</span>[]&gt; recallMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="comment">// 循环开始前的头部</span></span><br><span class="line">        <span class="keyword">int</span>[] preLoop = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="comment">// 循环节</span></span><br><span class="line">        <span class="keyword">int</span>[] inLoop = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">            <span class="comment">// 尝试下一个 s1 匹配</span></span><br><span class="line">            s1Count++;</span><br><span class="line">            <span class="comment">// 遍历 s1</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s1.length(); ++i) &#123;</span><br><span class="line">                <span class="keyword">char</span> c = s1.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (c == s2.charAt(index)) &#123;</span><br><span class="line">                    <span class="comment">// 匹配到 s2 的一个字符</span></span><br><span class="line">                    index++;</span><br><span class="line">                    <span class="comment">// 完全匹配到 s2</span></span><br><span class="line">                    <span class="keyword">if</span> (index == s2.length()) &#123;</span><br><span class="line">                        s2Count++;</span><br><span class="line">                        index = <span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// S1 所有的 s1 都匹配完了，遍历完毕，返回 s2 的个数除以 s2 的乘数</span></span><br><span class="line">            <span class="keyword">if</span> (s1Count == n1) &#123;</span><br><span class="line">                <span class="keyword">return</span> s2Count / n2;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 出现了之前的循环节，表示找到了 s2 循环</span></span><br><span class="line">            <span class="keyword">if</span> (recallMap.containsKey(index)) &#123;</span><br><span class="line">                preLoop[<span class="number">0</span>] = recallMap.get(index)[<span class="number">0</span>];</span><br><span class="line">                preLoop[<span class="number">1</span>] = recallMap.get(index)[<span class="number">1</span>];</span><br><span class="line">                inLoop[<span class="number">0</span>] = s1Count - preLoop[<span class="number">0</span>];</span><br><span class="line">                inLoop[<span class="number">1</span>] = s2Count - preLoop[<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 没有找到循环节，记录 s1Count 和 s2Count 给下一次循环使用</span></span><br><span class="line">                recallMap.put(index, <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;s1Count, s2Count&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// ans 是 S1 包含的 s2 的数量，考虑之前的 preLoop 头部，和循环节 inLoop</span></span><br><span class="line">        <span class="keyword">int</span> ans = preLoop[<span class="number">1</span>] + (n1 - preLoop[<span class="number">0</span>]) / inLoop[<span class="number">0</span>] * inLoop[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// S1 的末尾还剩一些 s1，开始暴力匹配</span></span><br><span class="line">        <span class="keyword">int</span> rest = (n1 - preLoop[<span class="number">0</span>]) % inLoop[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 剩余 rest 个 s1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; rest; ++j) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s1.length(); ++i) &#123;</span><br><span class="line">                <span class="keyword">char</span> c = s1.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (c == s2.charAt(index)) &#123;</span><br><span class="line">                    <span class="comment">// 匹配到 s2 的一个字符</span></span><br><span class="line">                    index++;</span><br><span class="line">                    <span class="comment">// 完全匹配到 s2</span></span><br><span class="line">                    <span class="keyword">if</span> (index == s2.length()) &#123;</span><br><span class="line">                        ans++;</span><br><span class="line">                        index = <span class="number">0</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// S1 包含 ans 个 s2，那么 S1 包含 ans / n2 个 S2</span></span><br><span class="line">        <span class="keyword">return</span> ans / n2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">okclouder</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.okclouder.cn/2020/08/31/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/">https://www.okclouder.cn/2020/08/31/466.%20%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.okclouder.cn" target="_blank">okclouder</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/31/Activity%20%E5%BA%94%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%20ActivityLifecycleCallbacks%20/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2020/08/31/5388.%20%E9%87%8D%E6%96%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#466-%E7%BB%9F%E8%AE%A1%E9%87%8D%E5%A4%8D%E4%B8%AA%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">466. 统计重复个数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-number">1.1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94"><span class="toc-number">1.2.</span> <span class="toc-text">解答</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder - okclouder 的博客</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/page/8/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.okclouder.cn/null">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.okclouder.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/page/8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-20 00:13:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">okclouder</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/CNAME%20%E9%85%8D%E7%BD%AE/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/CNAME%20%E9%85%8D%E7%BD%AE/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.677Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">CNAME 配置CNAME作用CNAME 即指别名记录，也被称为规范名字。这种记录允许将多个名字映射到同一台计算机。 当需要将域名指向另一个域名，再由另一个域名提供 ip地址，就需要添加 CNAME 记录。
+CNAME会解析到另一个域名，之后再对另一个域名继续解析，直到解析出节点。
+域名网站添加域名解析以腾讯云为例，找到“云解析”，在“域名解析列表”添加CNAME记录。
+
+
+
+主机记录
+记录类型
+线路类型
+记录值
+TTL（秒）
+
+
+
+xxx
+CNAME
+默认
+xxx.github.io.
+600
+
+
+等待解析生效后，xxx.yourdomain.com 就能解析到 xxx.github.io
+注意记录值最后需要加上一个点
+在 github pages 新建 CNAME 文件新增 CNAME 文件
+1xxx.yourdomain.com
+
+Hexo 博客添加 CNAMEHexo 博客添加 CNAME 时，需要将 CNAME 文件放入 source 目录中。hexo g -d 部署后，CNAME 文件会被自动放入网站的根目录下。
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/ContentProvider%20%E7%9A%84%20query%20%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/ContentProvider%20%E7%9A%84%20query%20%E6%B5%81%E7%A8%8B%E5%88%86%E6%9E%90/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.677Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">ContentProvider 的 query 流程分析ContentProvider 将底层的数据结构（比如数据库、文件）封装并且提供增删改查的接口，提供给本应用或者外部的应用调用。
+ContentResolver 的 query 方法ContentProvider 的 query 操作是通过 ContentResolver 的 query 调用的，而不是直接调用 ContentProvider 的 query 方法，ContentProvider 的 query 方法类似于回调方法。
+ContentResolver 的 query 方法一般调用方式如下：
+context.getContentResolver().query(getUri(), null, null, null, null);
+Context 是一个抽象类，它的具体实现都在 ContextImpl 类中。
+ContextImpl 的 getContentResolver 方法如下：
+123public ContentResolver getContentResolver() &#123;    return mCon ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.677Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">ContentProvider 难点ContentProvider 的生命周期ContentProvider 只有 onCreate 这个生命周期方法。
+ContentProvider 的 onCreate 和 CRUDContentProvider 运行在哪个线程？他们是线程安全的吗？
+onCreate 方法运行在主线程。如果是 ContentProvider 同进程通信，CRUD 运行在主线程。如果是 ContentProvider 跨进程通信，CRUD 运行在 Binder 线程。
+ContentProvider 的内部存储有哪些ContentProvider 的内部存储只能是 sqlite 吗？
+ContentProvider 的内部存储不一定是 sqlite，可以是多种形式的存储。比如 sqlite、SharedPreference、文件、内存。
+ContentProvider 的 onCreate 和 Application 的 onCreate 先后顺序ContentProvider 的 onCreate 早于 Application 的 onCreate 执行。在 Ap ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Dagger2%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Dagger2%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.677Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Dagger2 依赖注入框架介绍Dagger2 是一个标准的依赖注入框架。Dagger2 是 Dagger1（Square 公司开发）的分支，由谷歌接手开发。
+添加依赖这里以 dagger 2.24 版本为例，在 app 的 build.gradle 添加 dagger 依赖如下:
+12345&#x2F;&#x2F; Add Dagger dependenciesdependencies &#123;  api &#39;com.google.dagger:dagger:2.24&#39;  annotationProcessor &#39;com.google.dagger:dagger-compiler:2.24&#39;&#125;
+
+@Inject 和 @Component假设由一个 Watch 类，需要调用 Watch 类的 work 方法。
+1234567891011public class Watch &#123;    @Inject    public Watch() &#123;    &#125;    public void work() &#123;      ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Binder%20%E7%AC%94%E8%AE%B0/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Binder%20%E7%AC%94%E8%AE%B0/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.676Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Binder 笔记Binder 是 Android RPC 机制的核心基础类，它实现了 IBinder 接口。Android 中跨进程通信一般都涉及到了 Binder 调用。
+Binder 简介Binder 类位于 /frameworks/base/core/java/android/os/Binder.java 文件中。
+大多数使用Binder的时候，不是直接实现Binder类，而是通过 AIDL(Android 接口描述语言) 文件描述接口方法，然后用 Android Studio 自动编译产生 AIDL 对应的 Binder 子类。当然，也可以不用 AIDL， 直接写一个继承 Binder 的类来使用。
+因为 Binder 类是一个基础 IPC 原语，所以它对应用的生命周期没有影响，只要创建它的进程在运行，Binder 就是有效的。一般我们会在应用的顶级组件，比如 Servce、Activity、ContentProvider，以让系统知道 Binder 所在进程正在运行中。
+如果 Binder 所在的进程停止了，当进程重启时，需要重新创建 Binder 并且绑定到进程。比如在  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Binder%E3%80%81IBinder%20%E5%92%8C%20IInterface%20%E7%9A%84%E5%85%B3%E7%B3%BB/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Binder%E3%80%81IBinder%20%E5%92%8C%20IInterface%20%E7%9A%84%E5%85%B3%E7%B3%BB/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.676Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Binder、IBinder 和 IInterface 的关系IBinder 接口Binder 实现了 IBinder 接口。
+123public class Binder implements IBinder &#123;    ...&#125;
+
+IBinder 接口定义了一些常量和方法。比如第一个交易码（transaction code）和最后一个交易码。
+最小的交易码是 1，最大的交易码是 16 ^ 6 - 1 = 16777215。其他的交易码处于这两个值之间。可以看出最多有 16777215 个 transaction。
+12345678/** * The first transaction code available for user commands. */int FIRST_CALL_TRANSACTION  = 0x00000001;/** * The last transaction code available for user commands. */int LAST_CALL_TRANSACTION   = 0x00ffffff;
+
+IBinder 接口 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Bluedroid%20%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Bluedroid%20%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.676Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Bluedroid 的代码结构分析system/bt 的主要文件结构及相应功能介绍如下。
+mainbte_main.cc
+该功能涉及BTE核心栈的初始化和卸载。
+
+bte_main_in_hw_init：负责芯片硬件的初始化
+bte_main_boot_entry：调用 GKI_init，
+
+bte_init.cc
+BTE_InitStack：初始化 BTE 控制块，如 RFCOMM、DUN、SPP、HSP2 和 HFP 等。核心 stack 必须在创建 BTU task（任务）前调用。
+btabta 用于和 Bluetooth process 层交互，实现蓝牙设备管理、状态管理以及一些 Profile 的 Bluedroid 实现。BTA 的主要组件如下所示。
+
+AG 实现 BTA 音频网关（audio gateway）
+AR 负责 Audio/Video 注册
+AV 实现 BTA advanced audio/video
+DM 实现 BTA 设备管理
+GATT 实现通用属性配置文件（Generic Attribute Profile），此模块是 Bluetooth 4.0 新增加的 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/ButterKnife%20View%20%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/ButterKnife%20View%20%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.676Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">ButterKnife View 注解框架介绍ButterKnife 是 Android 系统的 View 注入框架，它可以减少大量的 findViewById 以及 setOnClickListener 代码，简化代码并提升开发效率。
+但是，Google 官方提倡的 View Binding (MVVM) 架构也可以起到相同的作用。
+正如 ButterKnife 的作者所说：
+1Attention: Development on this tool is winding down. Please consider switching to view binding in the coming months.
+
+大致意思是 ButterKnife 的开发将变缓，后续请考虑迁移到 view binding 架构。
+添加 ButterKnife 依赖在 app 模块的 build.gradle 文件添加依赖如下：
+123456dependencies &#123;...    &#x2F;&#x2F; butterknife    implementation &#39;com.jakew ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E8%93%9D%E7%89%99%20HFP%20%E5%92%8C%20A2DP/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E8%93%9D%E7%89%99%20HFP%20%E5%92%8C%20A2DP/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.675Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 蓝牙 HFP 和 A2DPHFP（Hands Free Profile）和 A2DP (Advanced Audio Distribution Profile) 是经典蓝牙常用的两个协议。
+HFP 协议一般用来支持耳机打电话、接电话、挂断电话、拒接电话等操作。
+A2DP 协议一般用来听歌，传输音频立体声。
+ProfileProxyAndroid SDK 使用 BluetoothAdapter 的 getProfileProxy 获取每个具体的 Profile。
+获取 HFP：
+12345public static boolean getHfpProfileProxy(Context context, BluetoothProfile.ServiceListener listener) &#123;    BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();    boolean hfp = defaultAdapter.getProfileProxy(context, listen ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%E8%93%9D%E7%89%99%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6%E5%92%8C%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%E8%93%9D%E7%89%99%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6%E5%92%8C%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.675Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android蓝牙系统框架和代码结构概述在 Android 4.2版本中，谷歌公司和博通合作，引入了博通的 BTE/BTA 协议栈，重构了蓝牙子系统。新的蓝牙协议栈被命名为 BlueDroid。它包含了两层：BTE（完成蓝牙核心功能）和 BTA（与 Android 蓝牙服务层进行通信）。蓝牙服务层与 Bluedroid （封装了 BTIF 层）通过 JNI 进行通信，与上层应用通过 Binder IPC 进行通信。BlueZ 及配套框架在 Android 系统上被移除。
+Application Framework该层代码主要是利用 android.bluetooth API 和蓝牙进程（Bluetooth Process）进行交互，也就是通过 Binder IPC 机制调用了蓝牙进程的各个服务（Service）封装的接口。代码位于 frameworks/base/core/java/android/bluetooth 下。
+Bluetooth Process该层代码主要是在 Bluetooth Process 里实现各种 Bluetooth Service 和各种配置文件（Profil ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/7/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">137</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">4</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-19T16:13:58.717Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder - okclouder 的博客</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.okclouder.cn/null">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.okclouder.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-20 00:13:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">okclouder</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/19/gradle-version-optimize/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></span></div><div class="content">Android Gradle 版本参数优化在 Gradle 项目结构中，每一个 Module 都对应一个 build.gradle。有时每个 Module 都会需要配置相同的版本号或者相同的版本依赖。为了解决相同参数重复配置的问题，可以在项目的根目录下增加一个公用的配置文件 common_config.gradle，在公用配置文件提供 Android app 模块、Android library 模块、java library 模块的公用配置。
+common_config.gradle每一个模块的 build.gradle 都对应一个 project 对象，可以将 project 传递给 common_config 定义的 setAppDefaultConfig 闭包，从而实现参数配置。common_config.gradle 可以根据具体情况修改，如果项目不使用 kotlin，可以在 common_config 去掉 kotlin 依赖。
+common_config.gradle 如下：
+123456789101112131415161718192021222324252627282 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/19/gradle-android-transform/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></span></div><div class="content">Gradle Android Transform API 编译修改 classGradle 插件Android 的 Gradle 插件一般用作 Android 工程的编译构建流程。以 Android app 模块的 build.gradle 为例：
+1apply plugin: &#x27;com.android.application&#x27;
+
+‘com.android.application’ 插件是 Android Gradle Plugin(AGP) 提供的用作 app 编译的插件。
+Android library 模块也提供了类似的插件：
+1apply plugin: &#x27;com.android.library&#x27;
+
+‘com.android.library’ 插件是 Android Gradle Plugin(AGP) 提供的用作 library 编译的插件。
+要使用这些插件，必须先在根目录下的 build.gradle 添加编译依赖：
+1234567buildscript &#123;    ...    dependencies &#123;     ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/19/android-proguard/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/19/android-proguard/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></span></div><div class="content">Android Proguard 混淆Android 项目可以在 build.gradle 开启 proguard 代码混淆。
+开启混淆的好处
+降低代码的可读性，缩短类和成员的名称，使反编译后的代码不容易被其他人阅读或破解。比如 APP \ SDK 对外发布正式版本时，通常需要做代码混淆。
+代码压缩。开启混淆后，项目中没有被任何地方执行到的代码会被 Proguard 优化，减少 APP\SDK 包体积。
+资源压缩。开启混淆后，项目中没有被使用的图片、字符串、布局等资源会从项目中移出，减少 APP\SDK 包体积。
+
+如何开启混淆Android 项目可以在模块的 build.gradle 文件配置开启混淆。
+123456789101112buildTypes &#123;    debug &#123;        minifyEnabled false        shrinkResources false        proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), &#39;progua ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/android-view-unique-id/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></span></div><div class="content">Android View 生成唯一 Id可以使用 Hook LayoutInflater 的方法替换 SystemService 原有的 LayoutInflater，在自定义的 LayoutInflater 遍历每一个 view，为它们生成 md5 作为 view 的唯一 id。
+Hook LayoutInflaterHook LayoutInflater 的核心在于使用反射调用 registerService 方法，注册自定义的 LayoutInflater。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344public class LayoutInflaterHook &#123;    private static final String TAG = &quot;LayoutInflaterHook&quot;;    public static void hookLayoutInflater() throws Exception &#123;        Clas ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">面试题 16.03. 交点给定两条线段（表示为起点start = {X1, Y1}和终点end = {X2, Y2}），如果它们有交点，请计算其交点，没有交点则返回空值。
+要求浮点型误差不超过10^-6。若有多个交点（线段重叠）则返回 X 值最小的点，X 坐标相同则返回 Y 值最小的点。
+示例 1：
+1234输入：line1 &#x3D; &#123;0, 0&#125;, &#123;1, 0&#125;line2 &#x3D; &#123;1, 1&#125;, &#123;0, -1&#125;输出： &#123;0.5, 0&#125;
+
+示例 2：
+1234输入：line1 &#x3D; &#123;0, 0&#125;, &#123;3, 3&#125;line2 &#x3D; &#123;1, 1&#125;, &#123;2, 2&#125;输出： &#123;1, 1&#125;
+
+示例 3：
+1234输入：line1 &#x3D; &#123;0, 0&#125;, &#123;1, 1&#125;line2 &#x3D; &#123;1, 0&#125;, &#1 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9824.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9824.%20%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">面试题24. 反转链表定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。
+示例:
+12输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+
+限制：
+0 &lt;= 节点个数 &lt;= 5000
+注意：本题与主站 206 题相同：https://leetcode-cn.com/problems/reverse-linked-list/
+来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+思路采用头插法将当前节点的下一个节点依次插入到头部。构造一个假头节点方便插入。
+解答123456789101112131415161718192021222324252627/** * Definition for singly-linked list. * public class ListNode &#123;  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9856%20-%20I.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9856%20-%20I.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">面试题56 - I. 数组中数字出现的次数一个整型数组 nums 里除两个数字之外，其他数字都出现了两次。请写程序找出这两个只出现一次的数字。要求时间复杂度是O(n)，空间复杂度是O(1)。
+示例 1：
+12输入：nums &#x3D; [4,1,4,6]输出：[1,6] 或 [6,1]
+
+示例 2：
+12输入：nums &#x3D; [1,2,10,4,1,4,3,3]输出：[2,10] 或 [10,2]
+
+限制：
+2 &lt;= nums &lt;= 10000
+来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+思路一种方法是使用 Set 保存已经存在的数，如果再次出现就把它从 Set 删除，留下只出现一次的数。
+更好的方法是使用异或的思想。如果一个数字出现了两次，那么异或以后就是 0，最后剩下只出现一次的数的异或。
+解答方法一：
+12345678910111213141516 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9862.%20%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%9862.%20%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0%E5%AD%97/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">面试题62. 圆圈中最后剩下的数字0,1,,n-1这n个数字排成一个圆圈，从数字0开始，每次从这个圆圈里删除第m个数字。求出这个圆圈里剩下的最后一个数字。
+例如，0、1、2、3、4这5个数字组成一个圆圈，从数字0开始每次删除第3个数字，则删除的前4个数字依次是2、0、4、1，因此最后剩下的数字是3。
+示例 1：
+12输入: n &#x3D; 5, m &#x3D; 3输出: 3
+
+示例 2：
+12输入: n &#x3D; 10, m &#x3D; 17输出: 2
+
+限制：
+1 &lt;= n &lt;= 10^51 &lt;= m &lt;= 10^6
+来源：力扣（LeetCode）链接：https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+思路需要用倒推的思路解决。最后一个数的下标一定是 0，如果 m = 3，那么上一轮有2个数备选的情况下这个数的位置是1，以此类推。
+解答1234567891011class ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/%E8%87%AA%E5%AE%9A%E4%B9%89%20ActivityNotifier%20%E8%A7%82%E5%AF%9F%E6%89%80%E6%9C%89%20Activity%20%E5%88%87%E6%8D%A2/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E8%87%AA%E5%AE%9A%E4%B9%89%20ActivityNotifier%20%E8%A7%82%E5%AF%9F%E6%89%80%E6%9C%89%20Activity%20%E5%88%87%E6%8D%A2/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.691Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">自定义 ActivityNotifier 观察所有 Activity 切换我们知道，使用 Application 注册 ActivityLifecycleCallbacks 可以观察到本应用的所有 Activity 的生命周期切换。那么有没有一种方法可以观察到手机上所有应用的 Activity 的生命周期切换？
+因为所有 Activity 的生命周期回调都会经过 ActivityManagerService(AMS) 管理，最后回调到应用的 ActivityThread。所以如果想要观察手机上所有应用的 Activity 生命周期回调，最好的办法就是在 AMS 中添加自定义的接口来实现。
+ActivityTaskManagerServiceAndroid 10 版本（Q 版本）中新增了一个 ActivityTaskManagerService（ATMS） 类，它的作用是承担 AMS 的部分功能。由于 AMS 过于庞大，所以将部分功能剥离给 ATMS 来处理。
+ActivityTaskManagerService 中有一些回调方法，例如 activityResumed 方法，所有 Act ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/%E8%93%9D%E7%89%994.0%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/%E8%93%9D%E7%89%994.0%E6%A0%B8%E5%BF%83%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.691Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">蓝牙4.0核心架构分析核心系统架构经典蓝牙核心系统实现蓝牙BR/EDR的最小核心系统涵盖4个底层和蓝牙规范定义的相关协议，以及一个公共服务层协议。
+服务发现协议（SDP）和所有必要的配置文件在通用访问配置文件（Generic Access Profile，GAP）中定义。
+BR/EDR核心系统包括对AMP的支持以及AMP管理协议（AMP Manager Protocol）和协议适配层（PAL），也支持相应的外部MAC/PHY。
+链路管理器、链路控制器和BR/EDR射频物理层组成一个BR/EDR控制器。
+AMP协议适配层、AMP媒介访问控制和AMP物理层组成一个AMP控制器。
+逻辑链路控制和适配协议（L2CAP）、服务发现协议和通用访问配置文件组成BR/EDR 主机。
+低功耗蓝牙核心系统低功耗蓝牙的体系结构分成三个基本部分：控制器、主机和应用程序。
+控制器通常是一个物理设备，它能够发送和接收无线信号，并懂得如何将这些信号翻译成携带信息的数据包。
+主机通常是一个软件栈，管理两台或多台设备间如何通信以及如何利用无线电同时提供几种不同的服务。
+应用程序则使用软件栈，进而是控制器来实现用户实例。 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">137</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">4</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-19T16:13:58.717Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

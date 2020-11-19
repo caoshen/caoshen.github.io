@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>okclouder - okclouder 的博客</title><meta name="author" content="okclouder"><meta name="copyright" content="okclouder"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta property="og:type" content="website">
+<meta property="og:title" content="okclouder">
+<meta property="og:url" content="https://www.okclouder.cn/page/12/index.html">
+<meta property="og:site_name" content="okclouder">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.okclouder.cn/null">
+<meta property="article:author" content="okclouder">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.okclouder.cn/null"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/page/12/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-20 00:13:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="okclouder" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/null" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">okclouder</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">okclouder</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E5%AD%90%E7%BA%BF%E7%A8%8B%E6%9B%B4%E6%96%B0%20UI/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E5%AD%90%E7%BA%BF%E7%A8%8B%E6%9B%B4%E6%96%B0%20UI/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.667Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 子线程更新 UI一般来说，不能在子线程更新 UI 控件，否则子线程和主线程同时更新 UI，可能导致 UI 被多个线程控制，显示异常。
+onCreate 更新 UI下面这个例子，在 Activity 的 onCreate 可以更新 UI。
+123456789101112@Overrideprotected void onCreate(@Nullable Bundle savedInstanceState) &#123;    super.onCreate(savedInstanceState);    setContentView(R.layout.worker_thread_activity);    final TextView text = findViewById(R.id.text);    new Thread(new Runnable() &#123;        @Override        public void run() &#123;            text.setText(&quot;run in worker thread.&quo ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20%E5%B4%A9%E6%BA%83%E4%BC%98%E5%8C%96/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E5%B4%A9%E6%BA%83%E4%BC%98%E5%8C%96/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.667Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 崩溃优化Android 的两种崩溃
+Java 崩溃
+Native 崩溃
+
+Java 崩溃就是在 Java 代码中，出现了未捕获异常，导致程序异常退出。
+Native 崩溃一般都是因为在 Native 代码中访问非法地址，也可能是地址对齐出现了问题，或者发生了程序主动 abort，这些都会产生相应的 signal 信号，导致程序异常退出。
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Activity%E9%9A%BE%E7%82%B9/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Activity%E9%9A%BE%E7%82%B9/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Activity 难点记录 Activity 相关的问题。
+setResult 和 finish 的关系假设 Activity A 跳转到 Activity B，B 如果想回传一个 intent 给 A，setResult 和 finish 的执行顺序应该是怎样的？
+应该先 setResult，然后再 finish。
+123456public final void setResult(int resultCode, Intent data) &#123;    synchronized (this) &#123;        mResultCode = resultCode;        mResultData = data;    &#125;&#125;
+
+可以看出，setResult 的作用是将 resultCode 和 data 赋值给 Activity 的 mResultCode 和 mResultData 两个字段。
+123public void finish() &#123;    finish(DONT_FINISH_TASK_WITH_ACTIVITY);&#12 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20RemoveViews/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20RemoveViews/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android RemoveViewsRemoteViews 远程视图，它不是用在应用自身的进程中，而是用在其他进程（SystemServer 进程）中显示视图界面，但它不是真正的 View，也没有继承自 View 类。RemoteViews 的使用场景有两种，通知栏和桌面小部件（Widget）。
+RemoteViews 在通知栏的应用发送通知时可以使用 RemoteViews 完成自定义通知栏 View 的效果。
+123456789101112131415161718192021222324252627282930313233343536@Overrideprotected void onCreate(@Nullable Bundle savedInstanceState) &#123;    super.onCreate(savedInstanceState);    setContentView(R.layout.remote_views_activity);    mNotificationManager = (NotificationManager) getApplicati ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android RxJava 基本用法RxJava 使用函数响应式编程方式，它可以简化项目，处理嵌套回调的异步事件。
+RxJava 依赖这里以 RxJava 2.2.1 为例。在 build.gradle 添加依赖：
+123&#x2F;&#x2F; rxjavaimplementation &quot;io.reactivex.rxjava2:rxjava:2.2.11&quot;implementation &#39;io.reactivex.rxjava2:rxandroid:2.1.1&#39;
+
+创建观察者 Observer新建一个 Observer，复写它的回调方法：onSubscribe、onNext、onError、onComplete
+123456789101112131415161718192021Observer&lt;String&gt; observer = new Observer&lt;String&gt;() &#123;            @Override            public void onSubscribe(Disposable  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20SharedPreference%20%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20SharedPreference%20%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android SharedPreferences 实现原理Android 的 SharedPreferences 一般用来保存一些标记位或者是一些设置项，比较适合轻量级的存储。
+通常获取 SharedPreferences 时有两种方法：
+
+通过 PreferenceManager 的 getDefaultSharedPreferences 得到默认的 SharedPreferences，也就是应用包名开头的 SharedPreferences。
+
+1SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+
+通过 Context 的 getSharedPreferences 方法获取指定名称的 SharedPreferences。
+
+1context.getSharedPreferences(&quot;sp_name&quot;, Context.MODE_PRIVATE);
+
+SharedPreference 的读写模式SharedPreferen ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20Window/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20Window/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android WindowWindow 是一个抽象类，它的实现是 PhoneWindow。Activity 的 setContentView 方法实际上就是通过 PhoneWindow 完成的。一般使用 WindowManager 来添加 View。WindowManager 是客户端用来添加 View 的接口，WindowManager 在 framework 层对应的是 WindowManagerService。
+使用 WindowManager 添加 View首先构造好需要添加的 View 和 LayoutParams，然后通过 WindowManager 的 addView 方法添加。
+123456789101112131415private void addWindow() &#123;    Button button = new Button(this);    button.setText(&quot;button&quot;);    WindowManager windowManager = (WindowManager) getSystemService(Con ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/Android%20setPackagesSuspended%20%E6%9A%82%E5%81%9C%E5%BA%94%E7%94%A8/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20setPackagesSuspended%20%E6%9A%82%E5%81%9C%E5%BA%94%E7%94%A8/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android setPackagesSuspended 暂停应用setPackagesSuspended 是 PackageManager 的一个 public 方法，它可以用来暂停应用。应用被暂停之后会进入 Suspended 状态，无法点击打开，会弹出一个系统对话框，提示应用已被暂停。应用的后台活动比如播放音乐也会被暂停。Android 数字健康（com.google.android.apps.wellbeing)就是利用 setPackagesSuspended 方法暂停应用，达到限制应用使用的效果。
+setPackagesSuspendedsetPackagesSuspended 方法如下：
+1234567@SystemApi@RequiresPermission(Manifest.permission.SUSPEND_APPS)public String[] setPackagesSuspended(String[] packageNames, boolean suspended,        @Nullable PersistableBundle appExtras,  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/31/Android%20%E4%B8%AD%E7%9A%84%20IPC%20%E6%96%B9%E5%BC%8F/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/Android%20%E4%B8%AD%E7%9A%84%20IPC%20%E6%96%B9%E5%BC%8F/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.666Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">Android 中的 IPC 方式Android 中跨进程通信的方式有 intent 传入 bundle，共享文件，Messenger，AIDL，ContentProvider，Socket。
+Bundle四大组件中的三大组件（Activity\Service\BroadcastReceiver）都是支持在 intent 中传递 Bundle 数据的。由于 Bundle　实现了 Parcelable 接口，所以它可以方便地在不同的进程间传输。传输的数据必须能够被序列化，比如基本类型，实现了 Parcelable 接口的对象，实现了 Serializable 接口的对象以及一些 Android 支持的特殊类型。
+文件共享共享文件也是一种不错的进程间通信方式，两个进程通过读写同一个文件来交换数据。比如 A 进程把数据写入文件，B 进程通过读取这个文件来获取数据。由于 Android 基于 Linux，使得并发读写文件可以没有限制地进行，甚至两个线程同时对同一个文件进行写操作都是允许的。
+通过文件共享的方式是有局限性的。如果并发读写，读出来的内容可能不是最新的。如果并发写，可能内容就错乱了。 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/31/617.%20%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/31/617.%20%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-31T13:54:09.665Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></span></div><div class="content">617. 合并二叉树给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。
+你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。
+示例 1:
+1234567891011121314输入: 	Tree 1                     Tree 2                            1                         2                                      &#x2F; \                       &#x2F; \                                    3   2                     1   3                               &#x2F;                           \   \                            5        ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/11/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/null" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">okclouder</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-version-optimize/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-version-optimize/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.181Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/gradle-android-transform/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/gradle-android-transform/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.180Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/19/android-proguard/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/19/android-proguard/" title="无题">无题</a><time datetime="2020-11-19T15:48:32.179Z" title="发表于 2020-11-19 23:48:32">2020-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/android-view-unique-id/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/android-view-unique-id/" title="无题">无题</a><time datetime="2020-08-31T13:55:03.156Z" title="发表于 2020-08-31 21:55:03">2020-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/08/31/%E9%9D%A2%E8%AF%95%E9%A2%98%2016.03.%20%E4%BA%A4%E7%82%B9/" title="无题">无题</a><time datetime="2020-08-31T13:54:09.692Z" title="发表于 2020-08-31 21:54:09">2020-08-31</time></div></div></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">十一月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">137</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/03/"><span class="card-archive-list-date">三月 2019</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/02/"><span class="card-archive-list-date">二月 2019</span><span class="card-archive-list-count">4</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">151</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2020-11-19T16:13:58.717Z"></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By okclouder</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
