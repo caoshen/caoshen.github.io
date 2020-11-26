@@ -1,9 +1,4 @@
----
-title: AIDL
-date: 2019-02-25 15:39:25
-tags:
----
-
+﻿
 # AIDL
 
 AIDL(Android Interface Definition Language)Android 接口描述语言，故名思意，使用来定义接口的。创建 AIDL 文件后，编译会自动产生对应的 Java 接口以及实现接口通信的样板代码。
