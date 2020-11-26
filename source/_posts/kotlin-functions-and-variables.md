@@ -1,3 +1,10 @@
+---
+title: Kotlin 函数和变量
+date: 2019-10-17 00:25:03
+tags: Kotlin
+categories: Kotlin
+---
+
 # Kotlin 函数和变量
 
 ## Hello, World!

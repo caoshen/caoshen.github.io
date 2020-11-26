@@ -1,3 +1,10 @@
+---
+title: Kotlin 类和属性
+date: 2019-10-17 23:20:28
+tags: Kotlin
+categories: Kotlin
+---
+
 # Kotlin 类和属性
 
 ## 类

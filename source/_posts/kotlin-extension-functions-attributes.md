@@ -1,3 +1,10 @@
+---
+title: Kotlin 扩展函数和扩展属性
+date: 2019-10-20 13:37:36
+tags: Kotlin
+categories: Kotlin
+---
+
 # Kotlin 扩展函数和扩展属性
 
 Kotlin 的扩展函数是定义在类外面的成员函数。

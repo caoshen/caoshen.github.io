@@ -1,3 +1,10 @@
+---
+title: Kotlin 带接收者的 lambda ：with 和 apply
+date: 2019-10-19 00:11:43
+tags: Kotlin标准库
+categories: Kotlin
+---
+
 # Kotlin 带接收者的 lambda ：with 和 apply
 
 Kotlin 标准库（Standard.kt）中提供了一些函数，使用它们可以方便地改写原有的代码。
