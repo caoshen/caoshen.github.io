@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bluedroid 的代码结构分析 | caoshen</title><meta name="keywords" content="蓝牙"><meta name="author" content="caoshen"><meta name="copyright" content="caoshen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Bluedroid 的代码结构分析system&#x2F;bt 的主要文件结构及相应功能介绍如下。 mainbte_main.cc 该功能涉及BTE核心栈的初始化和卸载。  bte_main_in_hw_init：负责芯片硬件的初始化 bte_main_boot_entry：调用 GKI_init，  bte_init.cc BTE_InitStack：初始化 BTE 控制块，如 RFCOMM、DUN、SP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bluedroid 的代码结构分析">
+<meta property="og:url" content="https://www.okclouder.cn/2020/03/31/bluedroid-structure-analysis/index.html">
+<meta property="og:site_name" content="caoshen">
+<meta property="og:description" content="Bluedroid 的代码结构分析system&#x2F;bt 的主要文件结构及相应功能介绍如下。 mainbte_main.cc 该功能涉及BTE核心栈的初始化和卸载。  bte_main_in_hw_init：负责芯片硬件的初始化 bte_main_boot_entry：调用 GKI_init，  bte_init.cc BTE_InitStack：初始化 BTE 控制块，如 RFCOMM、DUN、SP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.okclouder.cn/narinder-pal-jmeXz26F4ow-unsplash.jpg">
+<meta property="article:published_time" content="2020-03-31T13:32:44.000Z">
+<meta property="article:modified_time" content="2020-11-26T13:14:39.446Z">
+<meta property="article:author" content="caoshen">
+<meta property="article:tag" content="蓝牙">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.okclouder.cn/narinder-pal-jmeXz26F4ow-unsplash.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/2020/03/31/bluedroid-structure-analysis/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-26 21:14:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="caoshen" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(http://cdn.okclouder.cn/narinder-pal-jmeXz26F4ow-unsplash.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">caoshen</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">Bluedroid 的代码结构分析</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-03-31T13:32:44.000Z" title="发表于 2020-03-31 21:32:44">2020-03-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-26T13:14:39.446Z" title="更新于 2020-11-26 21:14:39">2020-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%93%9D%E7%89%99/">蓝牙</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Bluedroid-的代码结构分析"><a href="#Bluedroid-的代码结构分析" class="headerlink" title="Bluedroid 的代码结构分析"></a>Bluedroid 的代码结构分析</h1><p>system/bt 的主要文件结构及相应功能介绍如下。</p>
+<h2 id="main"><a href="#main" class="headerlink" title="main"></a>main</h2><p>bte_main.cc</p>
+<p>该功能涉及BTE核心栈的初始化和卸载。</p>
+<ul>
+<li>bte_main_in_hw_init：负责芯片硬件的初始化</li>
+<li>bte_main_boot_entry：调用 GKI_init，</li>
+</ul>
+<p>bte_init.cc</p>
+<p>BTE_InitStack：初始化 BTE 控制块，如 RFCOMM、DUN、SPP、HSP2 和 HFP 等。核心 stack 必须在创建 BTU task（任务）前调用。</p>
+<h2 id="bta"><a href="#bta" class="headerlink" title="bta"></a>bta</h2><p>bta 用于和 Bluetooth process 层交互，实现蓝牙设备管理、状态管理以及一些 Profile 的 Bluedroid 实现。BTA 的主要组件如下所示。</p>
+<ul>
+<li>AG 实现 BTA 音频网关（audio gateway）</li>
+<li>AR 负责 Audio/Video 注册</li>
+<li>AV 实现 BTA advanced audio/video</li>
+<li>DM 实现 BTA 设备管理</li>
+<li>GATT 实现通用属性配置文件（Generic Attribute Profile），此模块是 Bluetooth 4.0 新增加的核心协议。</li>
+<li>HL 实现 HDP （Health Device Profile）协议，此协议主要用于与健康设备的蓝牙连接，比如心率监护仪、血压测量仪、体温计等。</li>
+<li>PAN 实现 PAN （蓝牙个人局域网）协议，使得设备可以连接以下设备：个人局域网用户（PANU）设备、组式临时网络（GN）设备或网络访问点（NAP）设备。</li>
+<li>HH 实现 HID （Human Interface Device）协议，典型的应用包括蓝牙遥控器、蓝牙鼠标、蓝牙键盘、蓝牙游戏手柄等。</li>
+<li>PBAP 实现 PBAP （Phone Book Access Profile）协议，用于从电话薄交换服务器上获取电话薄内容。</li>
+<li>SYS 主要实现 BTA 系统管理。</li>
+</ul>
+<h2 id="btif"><a href="#btif" class="headerlink" title="btif"></a>btif</h2><p>Bluetooth Interface：提供所有 Bluetooth Process 需要的 API。</p>
+<ol>
+<li>src/bluetooth.cc HAL 层定义数组和函数体的实现。</li>
+<li>src/btif_av.cc Bluedroid 上 AV 的实现，主要结构和功能函数如下。</li>
+<li>src/btif_core.cc 该功能包含 HAL 层和 BTE 核心协议栈的核心接口函数。</li>
+<li>src/btif_dm.cc 该功能实现设备管理（Device Manage）相关的功能。</li>
+<li>src/btif_gatt.cc 实现 gatt 相关的接口。</li>
+<li>src/btif_hf.cc 该功能实现 handsfree 协议的接口。</li>
+<li>src/btif_hh.cc 该功能实现 HID Host 的蓝牙接口。</li>
+<li>src/btif_hl.cc 该功能实现健康设备（Health Device）的蓝牙接口。</li>
+<li>src/btif_media_task.cc btif 中的多媒体模块处理，AV（Audio Video）、HS（Headset）、HF（Handsfree）中的 audio 和 video 任务的处理。</li>
+<li>src/btif_pan.cc 该功能实现 PAN 的蓝牙接口。</li>
+<li>src/btif_rc.cc AVRCP 的实现，完成蓝牙耳机对音乐播放的控制。</li>
+<li>src/btif_rc.cc 关于 btif 中状态机的处理。</li>
+<li>src/btif_sock.cc Socket 相关接口。通过 btsock_listen 和 btsock_connect 来处理 SCO、L2CAP 和 RFCOMM 的监听与连接的建立。</li>
+</ol>
+<h2 id="HCI"><a href="#HCI" class="headerlink" title="HCI"></a>HCI</h2><p>HCI library 的实现，主要内容包括 HCI 接口的打开和收/发控制、Vendor 的 so 的打开和回调函数的注册、LPM（Low Power Mode） 的实现、btsnoop 的抓取等。</p>
+<ol>
+<li>src/bt_hci_bdroid.c 该功能主要处理 Bluedroid 中 Host/Controller 接口（HCI）的实现。</li>
+<li>src/vendor.c 该功能定义了 vendor 的调用函数，加载 libbt-vendor.so 库（由 vendor 提供的 libbt 文件夹里面的代码生成），初始化 vendor_interface，注册 vendor 需要的回调函数。</li>
+<li>src/hci_h4.c 该功能包含 HCI 传送/接收处理。</li>
+<li>src/hci_mct.c 该功能处理多链路的 HCI 发送和接收。</li>
+<li>src/lpm.c 低功耗模式（Low Power Mode，LPM）用于完成低功耗模式相关的处理。</li>
+</ol>
+<p>不同的 Android 版本 hci 实现可能不同，可以在 system/bt/hci/src/ 下查看相关文件。</p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p>stack 主要用于完成各协议在 Bluedroid 中的实现，协议包含 a2dp、avctp、avdtp、avrcp、bnep、gap、gatt、hid、l2cap、pan、rfcomm、sdp、macp（Multi-Channel Adaptation Protocol，多通道适配协议）、smp（用于生成对等协议的加密密钥和身份密钥），还包含几个其他模块。</p>
+<ol>
+<li>btm 主要涉及 Bluetooth Manger。</li>
+<li>btu 该功能主要用于核心协议层之间的事件处理与转换。</li>
+</ol>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>《低功耗蓝牙智能硬件开发实战》第2.7节《Bluedroid 的代码结构分析》</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">caoshen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.okclouder.cn/2020/03/31/bluedroid-structure-analysis/">https://www.okclouder.cn/2020/03/31/bluedroid-structure-analysis/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.okclouder.cn" target="_blank">caoshen</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%93%9D%E7%89%99/">蓝牙</a></div><div class="post_share"><div class="social-share" data-image="http://cdn.okclouder.cn/narinder-pal-jmeXz26F4ow-unsplash.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/03/31/sort-array/"><img class="prev-cover" src="http://cdn.okclouder.cn/aarn-giri-9fT545xEwZM-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">排序数组</div></div></a></div><div class="next-post pull-right"><a href="/2020/03/30/android-bluetooth-framework-structure/"><img class="next-cover" src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Android蓝牙系统框架和代码结构</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/03/29/analysis-of-bluetooth-4-core-architecture/" title="蓝牙4.0核心架构分析"><img class="cover" src="http://cdn.okclouder.cn/david-kovalenko-aQzh7VC-0H0-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-29</div><div class="title">蓝牙4.0核心架构分析</div></div></a></div><div><a href="/2020/03/30/android-bluetooth-framework-structure/" title="Android蓝牙系统框架和代码结构"><img class="cover" src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-03-30</div><div class="title">Android蓝牙系统框架和代码结构</div></div></a></div><div><a href="/2020/02/17/ble-security/" title="低功耗蓝牙的安全"><img class="cover" src="http://cdn.okclouder.cn/jamie-davies-bCpAvL49GsU-unsplash.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-02-17</div><div class="title">低功耗蓝牙的安全</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">caoshen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">hello</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Bluedroid-%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">Bluedroid 的代码结构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#main"><span class="toc-number">1.1.</span> <span class="toc-text">main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bta"><span class="toc-number">1.2.</span> <span class="toc-text">bta</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#btif"><span class="toc-number">1.3.</span> <span class="toc-text">btif</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCI"><span class="toc-number">1.4.</span> <span class="toc-text">HCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stack"><span class="toc-number">1.5.</span> <span class="toc-text">stack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">1.6.</span> <span class="toc-text">参考资料</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E4%B8%A4%E6%A3%B5%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0/" title="无题"><img src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E4%B8%A4%E6%A3%B5%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E6%8A%80%E6%9C%AF/" title="无题"><img src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E6%8A%80%E6%9C%AF/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" title="无题"><img src="http://cdn.okclouder.cn/jack-b-oUj5oFEET0E-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="无题"><img src="http://cdn.okclouder.cn/aarn-giri-9fT545xEwZM-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84N%E4%B8%AA%E5%94%AF%E4%B8%80%E6%95%B4%E6%95%B0/" title="无题"><img src="http://cdn.okclouder.cn/jamie-davies-bCpAvL49GsU-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84N%E4%B8%AA%E5%94%AF%E4%B8%80%E6%95%B4%E6%95%B0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.928Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By caoshen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>鄂ICP备18020323号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

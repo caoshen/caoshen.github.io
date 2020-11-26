@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kotlin 带接收者的 lambda ：with 和 apply | caoshen</title><meta name="keywords" content="Kotlin标准库"><meta name="author" content="caoshen"><meta name="copyright" content="caoshen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Kotlin 带接收者的 lambda ：with 和 applyKotlin 标准库（Standard.kt）中提供了一些函数，使用它们可以方便地改写原有的代码。 with 和 apply 方法是其中的 2 个函数，它们都可以接受一个 lambda 函数体，而且在 lambda 函数体可以调用对象。 with假如有以下代码，输出 A - Z 和一段文字。 12345678fun alphabet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 带接收者的 lambda ：with 和 apply">
+<meta property="og:url" content="https://www.okclouder.cn/2019/10/19/kotlin-lambda-with-and-apply/index.html">
+<meta property="og:site_name" content="caoshen">
+<meta property="og:description" content="Kotlin 带接收者的 lambda ：with 和 applyKotlin 标准库（Standard.kt）中提供了一些函数，使用它们可以方便地改写原有的代码。 with 和 apply 方法是其中的 2 个函数，它们都可以接受一个 lambda 函数体，而且在 lambda 函数体可以调用对象。 with假如有以下代码，输出 A - Z 和一段文字。 12345678fun alphabet">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.okclouder.cn/matteo-cancellieri-i5pwOdrX9l0-unsplash.jpg">
+<meta property="article:published_time" content="2019-10-18T16:11:43.000Z">
+<meta property="article:modified_time" content="2020-11-26T13:14:39.453Z">
+<meta property="article:author" content="caoshen">
+<meta property="article:tag" content="Kotlin标准库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.okclouder.cn/matteo-cancellieri-i5pwOdrX9l0-unsplash.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/2019/10/19/kotlin-lambda-with-and-apply/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-26 21:14:39'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="caoshen" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(http://cdn.okclouder.cn/matteo-cancellieri-i5pwOdrX9l0-unsplash.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">caoshen</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">Kotlin 带接收者的 lambda ：with 和 apply</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-18T16:11:43.000Z" title="发表于 2019-10-19 00:11:43">2019-10-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-26T13:14:39.453Z" title="更新于 2020-11-26 21:14:39">2020-11-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Kotlin/">Kotlin</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Kotlin-带接收者的-lambda-：with-和-apply"><a href="#Kotlin-带接收者的-lambda-：with-和-apply" class="headerlink" title="Kotlin 带接收者的 lambda ：with 和 apply"></a>Kotlin 带接收者的 lambda ：with 和 apply</h1><p>Kotlin 标准库（Standard.kt）中提供了一些函数，使用它们可以方便地改写原有的代码。</p>
+<p>with 和 apply 方法是其中的 2 个函数，它们都可以接受一个 lambda 函数体，而且在 lambda 函数体可以调用对象。</p>
+<h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p>假如有以下代码，输出 A - Z 和一段文字。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabet</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">val</span> result = StringBuilder()</span><br><span class="line">    <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">        result.append(letter)</span><br><span class="line">    &#125;</span><br><span class="line">    result.append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> result.toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 with 函数改写如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabetWith</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">val</span> result = StringBuilder()</span><br><span class="line">    <span class="keyword">return</span> with(result) &#123;</span><br><span class="line">        <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.append(letter)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">        <span class="keyword">this</span>.toString()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的 this 指向 result。</p>
+<p>代码中的 this 可以省略，改写如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabetWith</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">val</span> result = StringBuilder()</span><br><span class="line">    <span class="keyword">return</span> with(result) &#123;</span><br><span class="line">        <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            append(letter)</span><br><span class="line">        &#125;</span><br><span class="line">        append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">        toString()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以将函数体转换成表达式函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabetWith</span><span class="params">()</span></span> = with(StringBuilder()) &#123;</span><br><span class="line">    <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">        append(letter)</span><br><span class="line">    &#125;</span><br><span class="line">    append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">    toString()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的写法对比最初的写法少了很多 result 变量的调用。假如一个类有很多属性，可以直接使用 with 对它进行操作。</p>
+<h3 id="方法名称冲突"><a href="#方法名称冲突" class="headerlink" title="方法名称冲突"></a>方法名称冲突</h3><p>如果 alphabetWith 想调用外部类的同名方法 toString。可以使用 <a href="mailto:&#116;&#104;&#x69;&#115;&#64;&#x4f;&#x75;&#116;&#x65;&#x72;&#67;&#108;&#x61;&#x73;&#115;&#46;&#x74;&#x6f;&#83;&#116;&#114;&#x69;&#110;&#103;">&#116;&#104;&#x69;&#115;&#64;&#x4f;&#x75;&#116;&#x65;&#x72;&#67;&#108;&#x61;&#x73;&#115;&#46;&#x74;&#x6f;&#83;&#116;&#114;&#x69;&#110;&#103;</a> 如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">alphabetWith</span><span class="params">()</span></span> = with(StringBuilder()) &#123;</span><br><span class="line">        <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">            append(letter)</span><br><span class="line">        &#125;</span><br><span class="line">        append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">        <span class="keyword">this</span><span class="symbol">@Main</span>.toString()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Main toString&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Main toString</span><br></pre></td></tr></table></figure>
+
+<p>可以看出调用的是 Main 类的 toString。</p>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><p>apply 和 with 很类似。with 的返回值是整个 lambda 的返回值，而不是 with 第一个参数本身。</p>
+<p>如果想完成和 with 相同的作用，但是不想传递一个对象或者想返回调用者本身，就用 apply。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabetApply</span><span class="params">()</span></span> = StringBuilder().apply &#123;</span><br><span class="line">    <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">        append(letter)</span><br><span class="line">    &#125;</span><br><span class="line">    append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">&#125;.toString()</span><br></pre></td></tr></table></figure>
+
+<p>可以看出 StringBuilder 对象直接调用 apply，apply 返回了一个 StringBuilder，最后调用 StringBuilder 的 toString。</p>
+<p>上述代码等价于</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">alphabetBuildString</span><span class="params">()</span></span> = buildString &#123;</span><br><span class="line">    <span class="keyword">for</span> (letter <span class="keyword">in</span> <span class="string">&#x27;A&#x27;</span>..<span class="string">&#x27;Z&#x27;</span>) &#123;</span><br><span class="line">        append(letter)</span><br><span class="line">    &#125;</span><br><span class="line">    append(<span class="string">&quot;\nNow I know the alphabet!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>buildString 是 StringBuilder.kt 提供的标准函数。</p>
+<p>它的定义如下：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">buildString</span><span class="params">(builderAction: <span class="type">StringBuilder</span>.() -&gt; <span class="type">Unit</span>)</span></span>: String =</span><br><span class="line">    StringBuilder().apply(builderAction).toString()</span><br></pre></td></tr></table></figure>
+
+<p>可以看出 buildString 封装了 apply。</p>
+<h2 id="with-和-apply-的实现"><a href="#with-和-apply-的实现" class="headerlink" title="with 和 apply 的实现"></a>with 和 apply 的实现</h2><p>with 函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@kotlin</span>.<span class="keyword">internal</span>.InlineOnly</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> <span class="title">with</span><span class="params">(receiver: <span class="type">T</span>, block: <span class="type">T</span>.() -&gt; <span class="type">R</span>)</span></span>: R &#123;</span><br><span class="line">    contract &#123;</span><br><span class="line">        callsInPlace(block, InvocationKind.EXACTLY_ONCE)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> receiver.block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>apply 函数：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@kotlin</span>.<span class="keyword">internal</span>.InlineOnly</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">apply</span><span class="params">(block: <span class="type">T</span>.() -&gt; <span class="type">Unit</span>)</span></span>: T &#123;</span><br><span class="line">    contract &#123;</span><br><span class="line">        callsInPlace(block, InvocationKind.EXACTLY_ONCE)</span><br><span class="line">    &#125;</span><br><span class="line">    block()</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>with 和 apply 都调用了传入的 block 函数。它们区别在于：</p>
+<ol>
+<li>with 有一个 receiver 参数来表示接收者，而 apply 是一个扩展函数，调用者可以直接调用 apply。</li>
+<li>with 的返回值是 block 函数的返回值，而 apply 的返回值是调用者本身。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">caoshen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.okclouder.cn/2019/10/19/kotlin-lambda-with-and-apply/">https://www.okclouder.cn/2019/10/19/kotlin-lambda-with-and-apply/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.okclouder.cn" target="_blank">caoshen</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Kotlin%E6%A0%87%E5%87%86%E5%BA%93/">Kotlin标准库</a></div><div class="post_share"><div class="social-share" data-image="http://cdn.okclouder.cn/matteo-cancellieri-i5pwOdrX9l0-unsplash.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/10/20/kotlin-extension-functions-attributes/"><img class="prev-cover" src="http://cdn.okclouder.cn/jack-b-oUj5oFEET0E-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Kotlin 扩展函数和扩展属性</div></div></a></div><div class="next-post pull-right"><a href="/2019/10/17/kotlin-class-and-properties/"><img class="next-cover" src="http://cdn.okclouder.cn/narinder-pal-jmeXz26F4ow-unsplash.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Kotlin 类和属性</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">caoshen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">hello</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kotlin-%E5%B8%A6%E6%8E%A5%E6%94%B6%E8%80%85%E7%9A%84-lambda-%EF%BC%9Awith-%E5%92%8C-apply"><span class="toc-number">1.</span> <span class="toc-text">Kotlin 带接收者的 lambda ：with 和 apply</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#with"><span class="toc-number">1.1.</span> <span class="toc-text">with</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%90%8D%E7%A7%B0%E5%86%B2%E7%AA%81"><span class="toc-number">1.1.1.</span> <span class="toc-text">方法名称冲突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apply"><span class="toc-number">1.2.</span> <span class="toc-text">apply</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#with-%E5%92%8C-apply-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">with 和 apply 的实现</span></a></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E4%B8%A4%E6%A3%B5%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0/" title="无题"><img src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E4%B8%A4%E6%A3%B5%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E6%8A%80%E6%9C%AF/" title="无题"><img src="http://cdn.okclouder.cn/marek-piwnicki-N4UBysRDmac-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BD%8E%E5%8A%9F%E8%80%97%E8%93%9D%E7%89%99%E6%8A%80%E6%9C%AF/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" title="无题"><img src="http://cdn.okclouder.cn/jack-b-oUj5oFEET0E-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="无题"><img src="http://cdn.okclouder.cn/aarn-giri-9fT545xEwZM-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E8%BF%9E%E7%BB%AD%E6%AD%A3%E6%95%B4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.929Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/26/%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84N%E4%B8%AA%E5%94%AF%E4%B8%80%E6%95%B4%E6%95%B0/" title="无题"><img src="http://cdn.okclouder.cn/jamie-davies-bCpAvL49GsU-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/26/%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84N%E4%B8%AA%E5%94%AF%E4%B8%80%E6%95%B4%E6%95%B0/" title="无题">无题</a><time datetime="2020-11-26T13:13:31.928Z" title="发表于 2020-11-26 21:13:31">2020-11-26</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By caoshen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>鄂ICP备18020323号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
