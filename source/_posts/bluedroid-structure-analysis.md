@@ -1,3 +1,10 @@
+---
+title: Bluedroid 的代码结构分析
+date: 2020-03-31 21:32:44
+tags: 蓝牙
+categories: 蓝牙
+---
+
 # Bluedroid 的代码结构分析
 
 system/bt 的主要文件结构及相应功能介绍如下。

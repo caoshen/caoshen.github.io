@@ -1,4 +1,10 @@
-# 5389. 点菜展示表
+---
+title: 点菜展示表
+date: 2020-04-19 12:55:07
+tags: 算法
+---
+
+# 点菜展示表
 
 给你一个数组 orders，表示客户在餐厅中完成的订单，确切地说， orders[i]=[customerNamei,tableNumberi,foodItemi] ，其中 customerNamei 是客户的姓名，tableNumberi 是客户所在餐桌的桌号，而 foodItemi 是客户点的餐品名称。
 

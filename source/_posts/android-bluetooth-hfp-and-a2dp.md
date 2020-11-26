@@ -1,3 +1,10 @@
+---
+title: Android 蓝牙 HFP 和 A2DP
+date: 2020-06-02 00:12:26
+tags: 蓝牙Profile
+categories: 蓝牙
+---
+
 # Android 蓝牙 HFP 和 A2DP
 
 HFP（Hands Free Profile）和 A2DP (Advanced Audio Distribution Profile) 是经典蓝牙常用的两个协议。
