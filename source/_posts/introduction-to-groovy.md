@@ -1,3 +1,10 @@
+---
+title: Groovy 语法简介
+date: 2019-10-09 01:01:48
+tags: Gradle
+categories: Android
+---
+
 # Groovy 语法简介
 
 Groovy 是一个 JVM 语言，它可以和 Java 兼容，编译成 class 文件在 JVM 上运行。相比较 Java ，Groovy 语法更为简洁。Gradle 构建工具使用 Groovy 语言编写配置。

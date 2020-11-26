@@ -1,3 +1,10 @@
+---
+title: Android View 生成唯一 Id
+date: 2020-08-31 23:06:48
+tags: View
+categories: Android
+---
+
 # Android View 生成唯一 Id
 
 可以使用 Hook LayoutInflater 的方法替换 SystemService 原有的 LayoutInflater，在自定义的 LayoutInflater 遍历每一个 view，为它们生成 md5 作为 view 的唯一 id。

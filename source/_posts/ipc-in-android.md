@@ -1,7 +1,8 @@
 ---
 title: Android 中的 IPC 方式
-date: 2019-03-23 14:48:21
-tags:
+date: 2019-08-18 22:12:55
+tags: IPC
+categories: Android
 ---
 
 # Android 中的 IPC 方式

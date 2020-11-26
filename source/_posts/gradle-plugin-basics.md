@@ -1,3 +1,10 @@
+---
+title: Gradle 插件基础
+date: 2019-10-13 00:39:33
+tags: Gradle
+categories: Android
+---
+
 # Gradle 插件基础
 
 Gradle 中的插件可以分为 2 类：

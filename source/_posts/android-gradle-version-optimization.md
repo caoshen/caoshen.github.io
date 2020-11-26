@@ -1,3 +1,10 @@
+---
+title: Android Gradle 版本参数优化
+date: 2020-10-28 13:02:33
+tags: Gradle
+categories: Android
+---
+
 # Android Gradle 版本参数优化
 
 在 Gradle 项目结构中，每一个 Module 都对应一个 build.gradle。有时每个 Module 都会需要配置相同的版本号或者相同的版本依赖。为了解决相同参数重复配置的问题，可以在项目的根目录下增加一个公用的配置文件 common_config.gradle，在公用配置文件提供 Android app 模块、Android library 模块、java library 模块的公用配置。

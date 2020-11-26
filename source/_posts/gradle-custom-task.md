@@ -1,3 +1,10 @@
+---
+title: Gradle 自定义 task
+date: 2019-10-12 00:23:25
+tags: Gradle
+categories: Android
+---
+
 # Gradle 自定义 task
 
 task 是 gradle 的执行单元，gradle 通过一个个 task 完成具体任务的执行。

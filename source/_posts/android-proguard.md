@@ -1,3 +1,10 @@
+---
+title: Android Proguard 混淆
+date: 2020-09-07 19:46:23
+tags: Proguard
+categories: Android
+---
+
 # Android Proguard 混淆
 
 Android 项目可以在 build.gradle 开启 proguard 代码混淆。

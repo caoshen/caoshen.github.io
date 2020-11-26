@@ -1,3 +1,10 @@
+---
+title: Gradle 脚本的执行时序
+date: 2019-10-10 23:48:52
+tags: Gradle
+categories: Android
+---
+
 # Gradle 脚本的执行时序
 
 Gradle 脚本的执行分为三个过程：
