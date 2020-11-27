@@ -1,7 +1,11 @@
 ---
 title: 单词接龙 II
 date: 2020-06-15 00:26:57
-tags: 算法
+tags: 
+  - 算法
+  - 图
+  - BFS
+categories: 算法
 ---
 
 # 单词接龙 II

@@ -2,6 +2,7 @@
 title: 设计推特
 date: 2020-04-14 00:29:10
 tags: 算法
+categories: 算法
 ---
 
 # 设计推特

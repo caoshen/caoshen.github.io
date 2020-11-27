@@ -2,6 +2,7 @@
 title: 多数元素
 date: 2020-03-12 23:10:25
 tags: 算法
+categories: 算法
 ---
 
 # 多数元素

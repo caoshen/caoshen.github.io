@@ -2,6 +2,7 @@
 title: 地图分析
 date: 2020-03-29 22:11:17
 tags: 算法
+categories: 算法
 ---
 
 # 地图分析

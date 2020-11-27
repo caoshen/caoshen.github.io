@@ -2,6 +2,7 @@
 title: LFU缓存
 date: 2020-04-05 23:58:04
 tags: 算法
+categories: 算法
 ---
 
 # LFU缓存
