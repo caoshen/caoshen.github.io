@@ -1,3 +1,10 @@
+---
+title: 分数到小数
+date: 2020-01-21 23:56:28
+tags: 算法
+categories: 算法
+---
+
 # 分数到小数
 
 给定两个整数，分别表示分数的分子 numerator 和分母 denominator，以字符串形式返回小数。
