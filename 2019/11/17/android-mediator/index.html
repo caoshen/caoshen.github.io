@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Android 源码的中介者模式 | caoshen</title><meta name="keywords" content="设计模式"><meta name="author" content="caoshen"><meta name="copyright" content="caoshen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Android 源码的中介者模式中介者模式介绍中介者模式（Mediator Pattern）也成为调解者模式或者调停者模式，Mediator 本身就有调停者和调解者的意思。 中介者模式的定义中介者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显作用。从而使它们可以松散耦合。当某些对象之间的作用发生改变时，不会立即影响其他的一些对象之间的作用。保证这些作用可以彼此独立的变化。 中介者模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 源码的中介者模式">
+<meta property="og:url" content="https://www.okclouder.cn/2019/11/17/android-mediator/index.html">
+<meta property="og:site_name" content="caoshen">
+<meta property="og:description" content="Android 源码的中介者模式中介者模式介绍中介者模式（Mediator Pattern）也成为调解者模式或者调停者模式，Mediator 本身就有调停者和调解者的意思。 中介者模式的定义中介者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显作用。从而使它们可以松散耦合。当某些对象之间的作用发生改变时，不会立即影响其他的一些对象之间的作用。保证这些作用可以彼此独立的变化。 中介者模式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg">
+<meta property="article:published_time" content="2019-11-17T15:58:39.000Z">
+<meta property="article:modified_time" content="2020-11-30T14:11:53.882Z">
+<meta property="article:author" content="caoshen">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/2019/11/17/android-mediator/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-30 22:11:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="caoshen" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">caoshen</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">Android 源码的中介者模式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-17T15:58:39.000Z" title="发表于 2019-11-17 23:58:39">2019-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-30T14:11:53.882Z" title="更新于 2020-11-30 22:11:53">2020-11-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Android/">Android</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Android-源码的中介者模式"><a href="#Android-源码的中介者模式" class="headerlink" title="Android 源码的中介者模式"></a>Android 源码的中介者模式</h1><h2 id="中介者模式介绍"><a href="#中介者模式介绍" class="headerlink" title="中介者模式介绍"></a>中介者模式介绍</h2><p>中介者模式（Mediator Pattern）也成为调解者模式或者调停者模式，Mediator 本身就有调停者和调解者的意思。</p>
+<h2 id="中介者模式的定义"><a href="#中介者模式的定义" class="headerlink" title="中介者模式的定义"></a>中介者模式的定义</h2><p>中介者模式包装了一系列对象相互作用的方式，使得这些对象不必相互明显作用。从而使它们可以松散耦合。当某些对象之间的作用发生改变时，不会立即影响其他的一些对象之间的作用。保证这些作用可以彼此独立的变化。</p>
+<p>中介者模式将多对多的相互作用转化为一对多的相互作用。中介者模式将对象的行为和协作抽象化，把对象在小尺度的行为上与其他对象的相互作用分开处理。</p>
+<h2 id="Android-源码的中介者模式实现"><a href="#Android-源码的中介者模式实现" class="headerlink" title="Android 源码的中介者模式实现"></a>Android 源码的中介者模式实现</h2><p>中介者模式在 Android 源码中的一个比较好的例子是 Keyguard 锁屏的功能实现。</p>
+<h3 id="KeyguardViewMediator"><a href="#KeyguardViewMediator" class="headerlink" title="KeyguardViewMediator"></a>KeyguardViewMediator</h3><p>KeyguardViewMediator 代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KeyguardViewMediator</span> <span class="keyword">extends</span> <span class="title">SystemUI</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> AlarmManager mAlarmManager;</span><br><span class="line">    <span class="keyword">private</span> AudioManager mAudioManager;</span><br><span class="line">    <span class="keyword">private</span> StatusBarManager mStatusBarManager;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> StatusBarKeyguardViewManager mStatusBarKeyguardViewManager;</span><br><span class="line">    ...</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playSounds</span><span class="params">(<span class="keyword">boolean</span> locked)</span> </span>&#123;</span><br><span class="line">        playSound(locked ? mLockSoundId : mUnlockSoundId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">playSound</span><span class="params">(<span class="keyword">int</span> soundId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (soundId == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">final</span> ContentResolver cr = mContext.getContentResolver();</span><br><span class="line">        <span class="keyword">if</span> (Settings.System.getInt(cr, Settings.System.LOCKSCREEN_SOUNDS_ENABLED, <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">            mLockSounds.stop(mLockSoundStreamId);</span><br><span class="line">            <span class="comment">// Init mAudioManager</span></span><br><span class="line">            <span class="keyword">if</span> (mAudioManager == <span class="keyword">null</span>) &#123;</span><br><span class="line">                mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);</span><br><span class="line">                <span class="keyword">if</span> (mAudioManager == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">                mUiSoundsStreamType = mAudioManager.getUiSoundsStreamType();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            mUiOffloadThread.submit(() -&gt; &#123;</span><br><span class="line">                <span class="comment">// If the stream is muted, don&#x27;t play the sound</span></span><br><span class="line">                <span class="keyword">if</span> (mAudioManager.isStreamMute(mUiSoundsStreamType)) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> id = mLockSounds.play(soundId,</span><br><span class="line">                        mLockSoundVolume, mLockSoundVolume, <span class="number">1</span><span class="comment">/*priortiy*/</span>, <span class="number">0</span><span class="comment">/*loop*/</span>, <span class="number">1.0f</span><span class="comment">/*rate*/</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line">                    mLockSoundStreamId = id;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>KeyguardViewMediator 中看到很多 XXXManager 管理器的成员变量，这些各种各样的管理器其实就是各个具体的同事类。</p>
+<p>Android 使用 KeyguardViewMediator 来充当中介者协调这些管理器的状态改变。同样地，KeyguardViewMediator 中也定义了很多方法来处理这些管理器地状态，以解锁或锁屏时声音的播放为例，在 KeyguardViewMediator 中对应 playSounds 方法来协调音频的这一状态。</p>
+<p>而其他管理器的协调也可以在 KeyguardViewMediator 中找到类似的协调方法，这里不再多说。</p>
+<h3 id="Binder-机制"><a href="#Binder-机制" class="headerlink" title="Binder 机制"></a>Binder 机制</h3><p>Binder 机制是 Android 中非常重要的一个机制，其用来绑定不同的系统级服务并进行跨进程通信。</p>
+<p>在 Binder 机制中，有 3 个非常重要的组件 ServiceManager、Binder Driver 和 Bp Binder，其中 Bp Binder 是 Binder 的一个代理角色，其提供 IBinder 接口给各个客户端服务使用，这三者就扮演了一个中介者的角色。</p>
+<p>当手机启动后，ServiceManager 会先向 Binder Driver 进行注册，ServiceManager 是一个特殊的服务，它在 Binder Driver 中是最先被注册的，其注册 ID 为 0。</p>
+<p>当其他的服务想要注册到 Binder Driver 时，会先通过这个 0 号 ID 获取到 ServiceManager 所对应的 IBinder 接口，该接口实质上的实现逻辑是由 Bp Binder 实现的，获取到对应的接口后就会回调其中的 transact 方法，此后就会在 Binder Driver 中新注册一个 ID 1 来对应这个服务。如果有客户端想要使用这个服务，它会像 Binder Driver 一样获取到 ID 为 0 的接口，也就是 ServiceManager 对应的接口，并调用其 transact 方法要求连接到刚才的服务，这时候 Binder Driver 就会将 ID 为 1 的服务回传给客户端并将相关消息反馈给 ServiceManager 完成连接。</p>
+<p>这里 ServiceManager 和 Binder Driver 就相当于一个中介者，协调各个服务端与客户端。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">caoshen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.okclouder.cn/2019/11/17/android-mediator/">https://www.okclouder.cn/2019/11/17/android-mediator/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.okclouder.cn" target="_blank">caoshen</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div><div class="post_share"><div class="social-share" data-image="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/18/android-proxy/"><img class="prev-cover" src="https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Android 源码的代理模式</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/16/android-visitor/"><img class="next-cover" src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Android 源码的访问者模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/11/12/android-Iterator/" title="Android 源码的迭代器模式"><img class="cover" src="https://pic2.zhimg.com/80/v2-de84195207d783e0ed3bfb99f151f23e_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-12</div><div class="title">Android 源码的迭代器模式</div></div></a></div><div><a href="/2019/10/28/android-abstract-factory/" title="Android 源码的抽象工厂模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-28</div><div class="title">Android 源码的抽象工厂模式</div></div></a></div><div><a href="/2019/11/24/android-adapter/" title="Android 源码的适配器模式"><img class="cover" src="https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-24</div><div class="title">Android 源码的适配器模式</div></div></a></div><div><a href="/2019/11/29/android-bridge/" title="Android 源码的桥接模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-29</div><div class="title">Android 源码的桥接模式</div></div></a></div><div><a href="/2019/10/24/android-builder/" title="Android 源码的建造者模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">Android 源码的建造者模式</div></div></a></div><div><a href="/2019/11/08/android-command/" title="Android 源码的命令模式"><img class="cover" src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-08</div><div class="title">Android 源码的命令模式</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">caoshen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">hello</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-%E6%BA%90%E7%A0%81%E7%9A%84%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">Android 源码的中介者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">中介者模式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">中介者模式的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E6%BA%90%E7%A0%81%E7%9A%84%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.3.</span> <span class="toc-text">Android 源码的中介者模式实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KeyguardViewMediator"><span class="toc-number">1.3.1.</span> <span class="toc-text">KeyguardViewMediator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binder-%E6%9C%BA%E5%88%B6"><span class="toc-number">1.3.2.</span> <span class="toc-text">Binder 机制</span></a></li></ol></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Java%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/" title="无题"><img src="https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Java%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.811Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题"><img src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.810Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Java%20volatile%20%E5%85%B3%E9%94%AE%E5%AD%97/" title="无题"><img src="https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Java%20volatile%20%E5%85%B3%E9%94%AE%E5%AD%97/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.810Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题"><img src="https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.809Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/OkHttp%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="无题"><img src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/OkHttp%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.809Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By caoshen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>鄂ICP备18020323号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

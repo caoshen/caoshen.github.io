@@ -2,6 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.okclouder.cn/2019/12/01/android-design-patterns/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/02/android-state/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/31/android-strategy-mode/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/15/android-template-method/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/16/android-visitor/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/10/android-memo-mode/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/25/android-prototype/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/18/android-proxy/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/23/android-singleton/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/09/android-observer/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/24/android-decorator/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/28/android-facade/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/27/android-factory-method/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/25/android-flyweight/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/07/android-interpreter/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/24/android-builder/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/08/android-command/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/23/android-composite/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/05/android-chain-of-responsibility/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/12/android-Iterator/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/10/28/android-abstract-factory/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/24/android-adapter/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/29/android-bridge/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/2019/11/17/android-mediator/</loc>
+    
+    <lastmod>2020-11-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.okclouder.cn/2019/12/09/minimum-stack/</loc>
     
     <lastmod>2020-11-28</lastmod>
@@ -156,14 +324,14 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/05/14/nearest-common-ancestor-of-binary-tree/</loc>
+    <loc>https://www.okclouder.cn/2019/12/30/n-unique-integers-whose-sum-is-zero/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2019/12/30/n-unique-integers-whose-sum-is-zero/</loc>
+    <loc>https://www.okclouder.cn/2020/05/14/nearest-common-ancestor-of-binary-tree/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -282,21 +450,7 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2019/10/17/kotlin-class-and-properties/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -366,27 +520,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2019/10/09/introduction-to-groovy/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -443,21 +576,7 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2019/08/18/ipc-in-android/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -472,13 +591,6 @@
   
   <url>
     <loc>https://www.okclouder.cn/2020/11/27/Android%20%E5%B4%A9%E6%BA%83%E4%BC%98%E5%8C%96/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -527,13 +639,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/CNAME%20%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -576,21 +681,7 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/%E8%87%AA%E5%AE%9A%E4%B9%89%20ActivityNotifier%20%E8%A7%82%E5%AF%9F%E6%89%80%E6%9C%89%20Activity%20%E5%88%87%E6%8D%A2/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -618,13 +709,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/RxJava%20%E8%AE%A2%E9%98%85%E8%BF%87%E7%A8%8B%E8%A7%A3%E6%9E%90/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -632,21 +716,7 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/Java%20%E5%BC%BA%E8%BD%AF%E5%BC%B1%E8%99%9A%E5%BC%95%E7%94%A8/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -744,21 +814,7 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E7%9A%84%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2019/10/20/kotlin-extension-functions-attributes/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -842,20 +898,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/Java%20%E6%B3%A8%E8%A7%A3%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -864,20 +906,6 @@
   
   <url>
     <loc>https://www.okclouder.cn/2020/11/27/VirtualAPK%20%E6%8F%92%E4%BB%B6%E5%8C%96%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -947,13 +975,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2020/11/27/Activity%20%E5%BA%94%E7%94%A8%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%9B%9E%E8%B0%83%20ActivityLifecycleCallbacks%20/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -962,20 +983,6 @@
   
   <url>
     <loc>https://www.okclouder.cn/2019/03/31/mirror-config/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2020-11-27</lastmod>
     
@@ -1059,13 +1066,6 @@
   </url>
   
   <url>
-    <loc>https://www.okclouder.cn/2020/11/27/Android%20%E6%BA%90%E7%A0%81%E7%9A%84%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
-    
-    <lastmod>2020-11-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.okclouder.cn/2019/03/25/mina_rpx/</loc>
     
     <lastmod>2020-11-27</lastmod>
@@ -1089,7 +1089,7 @@
 
   <url>
     <loc>https://www.okclouder.cn/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1097,133 +1097,140 @@
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E9%95%9C%E5%83%8F/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E8%93%9D%E7%89%99/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E8%93%9D%E7%89%99Profile/</loc>
-    <lastmod>2020-11-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.okclouder.cn/tags/Proguard/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/Gradle/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.okclouder.cn/tags/Proguard/</loc>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/View/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/BLE%E5%B9%BF%E6%92%AD/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E6%A0%91/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E6%95%B0%E7%BB%84/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E9%80%92%E5%BD%92/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E9%93%BE%E8%A1%A8/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/IPC/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/Kotlin/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/Kotlin%E6%A0%87%E5%87%86%E5%BA%93/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E6%A0%88/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/BLE/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/%E5%9B%BE/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/tags/BFS/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1232,28 +1239,28 @@
   
   <url>
     <loc>https://www.okclouder.cn/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/categories/%E8%93%9D%E7%89%99/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/categories/Android/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.okclouder.cn/categories/Kotlin/</loc>
-    <lastmod>2020-11-28</lastmod>
+    <lastmod>2020-11-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

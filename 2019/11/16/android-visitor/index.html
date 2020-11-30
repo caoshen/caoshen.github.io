@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Android 源码的访问者模式 | caoshen</title><meta name="keywords" content="设计模式"><meta name="author" content="caoshen"><meta name="copyright" content="caoshen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Android 源码的访问者模式访问者模式介绍访问者模式是一种将数据操作与数据结构分离的设计模式，它是 23 种设计模式中最复杂的一个，但是它的使用频率并不高，正如《设计模式》的作者 GOF 对访问者模式的描述：大多数情况下，并不需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。 访问者模式的基本想法是，软件系统中拥有一个由许多对象构成的、比较稳定的对象结构，这些对象的类都拥有一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 源码的访问者模式">
+<meta property="og:url" content="https://www.okclouder.cn/2019/11/16/android-visitor/index.html">
+<meta property="og:site_name" content="caoshen">
+<meta property="og:description" content="Android 源码的访问者模式访问者模式介绍访问者模式是一种将数据操作与数据结构分离的设计模式，它是 23 种设计模式中最复杂的一个，但是它的使用频率并不高，正如《设计模式》的作者 GOF 对访问者模式的描述：大多数情况下，并不需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。 访问者模式的基本想法是，软件系统中拥有一个由许多对象构成的、比较稳定的对象结构，这些对象的类都拥有一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg">
+<meta property="article:published_time" content="2019-11-16T15:20:45.000Z">
+<meta property="article:modified_time" content="2020-11-30T14:11:53.887Z">
+<meta property="article:author" content="caoshen">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://www.okclouder.cn/2019/11/16/android-visitor/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-11-30 22:11:53'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="caoshen" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">caoshen</a></span><span id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><h1 class="post-title">Android 源码的访问者模式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-11-16T15:20:45.000Z" title="发表于 2019-11-16 23:20:45">2019-11-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-11-30T14:11:53.887Z" title="更新于 2020-11-30 22:11:53">2020-11-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Android/">Android</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Android-源码的访问者模式"><a href="#Android-源码的访问者模式" class="headerlink" title="Android 源码的访问者模式"></a>Android 源码的访问者模式</h1><h2 id="访问者模式介绍"><a href="#访问者模式介绍" class="headerlink" title="访问者模式介绍"></a>访问者模式介绍</h2><p>访问者模式是一种将数据操作与数据结构分离的设计模式，它是 23 种设计模式中最复杂的一个，但是它的使用频率并不高，正如《设计模式》的作者 GOF 对访问者模式的描述：大多数情况下，并不需要使用访问者模式，但是当你一旦需要使用它时，那你就是真的需要它了。</p>
+<p>访问者模式的基本想法是，软件系统中拥有一个由许多对象构成的、比较稳定的对象结构，这些对象的类都拥有一个 accept 方法用来接受访问者对象的访问。访问者是一个接口，它拥有一个 visit 方法，这个方法对访问到的对象结构中不同类型的元素做出不同的处理。在对象结构的每一次访问过程中，我们遍历整个对象结构，对每一个元素都实施 accept 方法，在每一个元素的 accept 方法中会调用访问者的 visit 方法，从而使访问者得以处理对象结构的每一个元素，我们可以针对对象结构设计不同的访问者类来完成不同的操作，达到区别对待的效果。</p>
+<h2 id="访问者模式的定义"><a href="#访问者模式的定义" class="headerlink" title="访问者模式的定义"></a>访问者模式的定义</h2><p>封装一些作用于某种数据结构中的各元素的操作，他可以在不改变这个数据结构的前提下定义作用于这些元素的新的操作。</p>
+<h2 id="Android-源码中的访问者模式"><a href="#Android-源码中的访问者模式" class="headerlink" title="Android 源码中的访问者模式"></a>Android 源码中的访问者模式</h2><p>Android 的编译时注解是一种访问者模式。编译时注解的核心原理依赖 APT （Annotation Processing Tools）实现。</p>
+<p>编译时注解解析的基本原理是，在某些代码元素上（如类型、函数、字段等）添加注解，在编译时编译器会检查 AbstractProcessor 的子类，并且调用该类型的 process 函数，然后将添加了注解的所有元素都传递到 process 函数中，使得开发人员可以在编译期进行相应的处理。</p>
+<p>编写注解处理器的核心是 AnnotationProcessorFactory 和 AnnotationProcessor 两个接口，后者表示的是注解处理器，而前者则是为某些注解类型创建注解处理器的工厂。</p>
+<p>对于编译器来说，代码中的元素结构是基本不变的，例如，组成代码的基本元素由包、类、函数、字段、类型参数、变量。JDK 中为这些元素定义了一个基类，也就是 Element 类，它有如下几个子类：</p>
+<ol>
+<li>PackageElement 包元素，包含了某个包下的信息，可以获取到包名等；</li>
+<li>TypeElement 类型元素，如某个字段属于某种类型；</li>
+<li>ExecutableElement 可执行元素，代表了函数类型的元素；</li>
+<li>VariableElement 变量元素；</li>
+<li>TypeParameterElement 类型参数元素。</li>
+</ol>
+<p>因为注解可以指定作用在哪些元素上，因此，通过上述的抽象来对应这些元素，例如下面这个注解，指定的是只能作用于类上面，并且这个注解只能保留在 class 文件中（编译时注解）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.CLASS)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Test &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h3><p>Element 接口位于 javax.lang.model.element。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Element</span> <span class="keyword">extends</span> <span class="title">javax</span>.<span class="title">lang</span>.<span class="title">model</span>.<span class="title">AnnotatedConstruct</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">TypeMirror <span class="title">asType</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">// 获取元素类型</span></span><br><span class="line">    <span class="function">ElementKind <span class="title">getKind</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="comment">// 获取元素修饰符，如 public、static、final 等</span></span><br><span class="line">    <span class="function">Set&lt;Modifier&gt; <span class="title">getModifiers</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    List&lt;? extends Element&gt; getEnclosedElements();</span><br><span class="line">    <span class="comment">// 接受访问者的访问</span></span><br><span class="line">    &lt;R, P&gt; <span class="function">R <span class="title">accept</span><span class="params">(ElementVisitor&lt;R, P&gt; v, P p)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到 Element 定义了一个代码元素的一些通用接口，其中很显眼的就是 accept 函数，这个函数接收一个 ElementVisitor 和类型为 P 的参数，ElementVisitor 就是访问者类型，而 P 则用于传递一些额外的参数给 visitor。这是一个典型的访问者模式。</p>
+<p>ElementVisitor 定义如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 元素访问者</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ElementVisitor</span>&lt;<span class="title">R</span>, <span class="title">P</span>&gt; </span>&#123;</span><br><span class="line">    <span class="comment">// 访问元素</span></span><br><span class="line">    <span class="function">R <span class="title">visit</span><span class="params">(Element var1, P var2)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">R <span class="title">visit</span><span class="params">(Element var1)</span></span>;</span><br><span class="line">    <span class="comment">// 访问包元素</span></span><br><span class="line">    <span class="function">R <span class="title">visitPackage</span><span class="params">(PackageElement var1, P var2)</span></span>;</span><br><span class="line">    <span class="comment">// 访问类型元素</span></span><br><span class="line">    <span class="function">R <span class="title">visitType</span><span class="params">(TypeElement var1, P var2)</span></span>;</span><br><span class="line">    <span class="comment">// 访问变量元素</span></span><br><span class="line">    <span class="function">R <span class="title">visitVariable</span><span class="params">(VariableElement var1, P var2)</span></span>;</span><br><span class="line">    <span class="comment">// 访问可执行元素</span></span><br><span class="line">    <span class="function">R <span class="title">visitExecutable</span><span class="params">(ExecutableElement var1, P var2)</span></span>;</span><br><span class="line">    <span class="comment">// 访问参数元素</span></span><br><span class="line">    <span class="function">R <span class="title">visitTypeParameter</span><span class="params">(TypeParameterElement var1, P var2)</span></span>;</span><br><span class="line">    <span class="comment">// 访问位置元素，为后续扩展预留的接口</span></span><br><span class="line">    <span class="function">R <span class="title">visitUnknown</span><span class="params">(Element var1, P var2)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当 Visitor 对元素结构进行访问时，就可以针对不同的类型进行不同的处理。</p>
+<p>例如 SimpleElementVisitor6 就是其中一个访问者，它基本上没做什么操作，直接返回了元素的默认值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SupportedSourceVersion(SourceVersion.RELEASE_6)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleElementVisitor6</span>&lt;<span class="title">R</span>, <span class="title">P</span>&gt; <span class="keyword">extends</span> <span class="title">AbstractElementVisitor6</span>&lt;<span class="title">R</span>, <span class="title">P</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">final</span> R DEFAULT_VALUE;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">SimpleElementVisitor6</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.DEFAULT_VALUE = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">SimpleElementVisitor6</span><span class="params">(R var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.DEFAULT_VALUE = var1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> R <span class="title">defaultAction</span><span class="params">(Element var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.DEFAULT_VALUE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitPackage</span><span class="params">(PackageElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitType</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitVariable</span><span class="params">(VariableElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> var1.getKind() != ElementKind.RESOURCE_VARIABLE ? <span class="keyword">this</span>.defaultAction(var1, var2) : <span class="keyword">this</span>.visitUnknown(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitExecutable</span><span class="params">(ExecutableElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitTypeParameter</span><span class="params">(TypeParameterElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>SimpleElementVisitor6 直接返回了默认值 null，也可以自己设定默认值。</p>
+<h3 id="ElementKindVisitor6"><a href="#ElementKindVisitor6" class="headerlink" title="ElementKindVisitor6"></a>ElementKindVisitor6</h3><p>另一个提取元素类型的访问者是 ElementKindVisitor6。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SupportedSourceVersion(SourceVersion.RELEASE_6)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ElementKindVisitor6</span>&lt;<span class="title">R</span>, <span class="title">P</span>&gt; <span class="keyword">extends</span> <span class="title">SimpleElementVisitor6</span>&lt;<span class="title">R</span>, <span class="title">P</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">ElementKindVisitor6</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>((Object)<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="title">ElementKindVisitor6</span><span class="params">(R var1)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(var1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitPackage</span><span class="params">(PackageElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">assert</span> var1.getKind() == ElementKind.PACKAGE : <span class="string">&quot;Bad kind on PackageElement&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 访问类型元素，比如类、注解、枚举、接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitType</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        ElementKind var3 = var1.getKind();</span><br><span class="line">        <span class="keyword">switch</span>(var3) &#123;</span><br><span class="line">        <span class="keyword">case</span> ANNOTATION_TYPE:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.visitTypeAsAnnotationType(var1, var2);</span><br><span class="line">        <span class="keyword">case</span> CLASS:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.visitTypeAsClass(var1, var2);</span><br><span class="line">        <span class="keyword">case</span> ENUM:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.visitTypeAsEnum(var1, var2);</span><br><span class="line">        <span class="keyword">case</span> INTERFACE:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.visitTypeAsInterface(var1, var2);</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(<span class="string">&quot;Bad kind &quot;</span> + var3 + <span class="string">&quot; for TypeElement&quot;</span> + var1);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitTypeAsAnnotationType</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitTypeAsClass</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitTypeAsEnum</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">visitTypeAsInterface</span><span class="params">(TypeElement var1, P var2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.defaultAction(var1, var2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ElementKindVisitor6 对于不同的类型进行不同的处理，提取各个元素的类型信息，例如，上述代码中对于 Type 类型的元素将分别进行处理，如类、枚举、接口、注解等。</p>
+<p>首先，编译器将代码抽象成一个代码元素的树，然后再编译时对整棵树进行遍历访问，每个元素都有一个 accept 函数接受访问者的访问，每个访问者中都有对应的 visit 函数，例如，visitType 函数就是对类型元素的访问，在每个 visit 函数中对不同的类型进行不同的处理，这样就达到了差异处理的效果，同时将数据结构和数据操作分离，使得每个类型的职责单一，易于升级维护。JDK 还特意预留了 visitUnknown 接口来应对 Java 语言后续发展可能添加元素类型的问题，灵活地将访问者模式的缺点优化。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">caoshen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.okclouder.cn/2019/11/16/android-visitor/">https://www.okclouder.cn/2019/11/16/android-visitor/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.okclouder.cn" target="_blank">caoshen</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div><div class="post_share"><div class="social-share" data-image="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/17/android-mediator/"><img class="prev-cover" src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Android 源码的中介者模式</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/15/android-template-method/"><img class="next-cover" src="https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Android 源码的模板方法模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2019/11/12/android-Iterator/" title="Android 源码的迭代器模式"><img class="cover" src="https://pic2.zhimg.com/80/v2-de84195207d783e0ed3bfb99f151f23e_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-12</div><div class="title">Android 源码的迭代器模式</div></div></a></div><div><a href="/2019/10/28/android-abstract-factory/" title="Android 源码的抽象工厂模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-28</div><div class="title">Android 源码的抽象工厂模式</div></div></a></div><div><a href="/2019/11/24/android-adapter/" title="Android 源码的适配器模式"><img class="cover" src="https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-24</div><div class="title">Android 源码的适配器模式</div></div></a></div><div><a href="/2019/11/29/android-bridge/" title="Android 源码的桥接模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-29</div><div class="title">Android 源码的桥接模式</div></div></a></div><div><a href="/2019/10/24/android-builder/" title="Android 源码的建造者模式"><img class="cover" src="https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-10-24</div><div class="title">Android 源码的建造者模式</div></div></a></div><div><a href="/2019/11/08/android-command/" title="Android 源码的命令模式"><img class="cover" src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-08</div><div class="title">Android 源码的命令模式</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://avatars2.githubusercontent.com/u/3806787?s=460&amp;u=ee280a9fc6c98bc591f30ffbf10360a9ac3822ff&amp;v=4" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">caoshen</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">151</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/caoshen"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/caoshen" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">hello</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android-%E6%BA%90%E7%A0%81%E7%9A%84%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">Android 源码的访问者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">访问者模式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">访问者模式的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android-%E6%BA%90%E7%A0%81%E4%B8%AD%E7%9A%84%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">Android 源码中的访问者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Element"><span class="toc-number">1.3.1.</span> <span class="toc-text">Element</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElementKindVisitor6"><span class="toc-number">1.3.2.</span> <span class="toc-text">ElementKindVisitor6</span></a></li></ol></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Java%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/" title="无题"><img src="https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Java%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.811Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题"><img src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Android%20RxJava%20%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.810Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/Java%20volatile%20%E5%85%B3%E9%94%AE%E5%AD%97/" title="无题"><img src="https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/Java%20volatile%20%E5%85%B3%E9%94%AE%E5%AD%97/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.810Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题"><img src="https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/ContentProvider%20%E9%9A%BE%E7%82%B9/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.809Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/27/OkHttp%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="无题"><img src="https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2020/11/27/OkHttp%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" title="无题">无题</a><time datetime="2020-11-27T00:56:17.809Z" title="发表于 2020-11-27 08:56:17">2020-11-27</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By caoshen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="icp"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>鄂ICP备18020323号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign({}, initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
