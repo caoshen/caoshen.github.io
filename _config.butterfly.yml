@@ -124,10 +124,10 @@ cover:
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
     - https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg
-    - https://pic4.zhimg.com/80/v2-6b20602cb7a9df995b44cf3c20af1ca6_1440w.jpeg
     - https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg
     - https://pic2.zhimg.com/80/v2-de84195207d783e0ed3bfb99f151f23e_1440w.jpeg
-    - https://pic2.zhimg.com/80/v2-c7340c6fe9eb200f4d5ca37e1b7c571e_1440w.jpeg
+    - https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg
+    - https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
