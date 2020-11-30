@@ -1,3 +1,10 @@
+---
+title: Android 源码的中介者模式
+date: 2019-11-17 23:58:39
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的中介者模式
 
 ## 中介者模式介绍

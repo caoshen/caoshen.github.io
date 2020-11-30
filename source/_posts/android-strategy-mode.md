@@ -1,3 +1,10 @@
+---
+title: Android 源码的策略模式
+date: 2019-10-31 23:55:08
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的策略模式
 
 ## 策略模式介绍

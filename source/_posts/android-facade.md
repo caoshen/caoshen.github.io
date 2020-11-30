@@ -1,3 +1,10 @@
+---
+title: Android 源码的外观模式
+date: 2019-11-28 23:58:50
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的外观模式
 
 ## 外观模式介绍

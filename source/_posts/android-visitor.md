@@ -1,3 +1,10 @@
+---
+title: Android 源码的访问者模式
+date: 2019-11-16 23:20:45
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的访问者模式
 
 ## 访问者模式介绍

@@ -1,3 +1,10 @@
+---
+title: Android 源码的装饰者模式
+date: 2019-11-24 23:51:07
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的装饰者模式
 
 ## 装饰者模式介绍

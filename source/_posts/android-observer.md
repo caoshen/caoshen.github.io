@@ -1,3 +1,10 @@
+---
+title: Android 源码的观察者模式
+date: 2019-11-09 23:57:58
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的观察者模式
 
 ## 观察者模式介绍

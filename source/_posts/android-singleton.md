@@ -1,3 +1,10 @@
+---
+title: Android 源码的单例模式
+date: 2019-10-23 01:28:01
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的单例模式
 
 单例模式可以保证在内存中只有一个实例，可以避免对象频繁地创建与消耗。

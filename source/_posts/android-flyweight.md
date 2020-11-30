@@ -1,3 +1,10 @@
+---
+title: Android 源码的享元模式
+date: 2019-11-25 23:53:57
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的享元模式
 
 ## 享元模式介绍

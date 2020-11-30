@@ -1,3 +1,10 @@
+---
+title: Android 源码的责任链模式
+date: 2019-11-05 00:18:10
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的责任链模式
 
 ## 责任链模式介绍

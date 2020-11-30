@@ -1,3 +1,10 @@
+---
+title: Android 源码的原型模式
+date: 2019-10-25 23:50:28
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的原型模式
 
 ## 原型模式介绍

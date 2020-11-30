@@ -1,3 +1,10 @@
+---
+title: Android 源码的解释器模式
+date: 2019-11-07 00:04:51
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的解释器模式
 
 ## 解释器模式介绍

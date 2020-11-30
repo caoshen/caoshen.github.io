@@ -1,3 +1,10 @@
+---
+title: Android 源码的组合模式
+date: 2019-11-23 23:59:01
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的组合模式
 
 ## 组合模式介绍

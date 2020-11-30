@@ -1,3 +1,10 @@
+---
+title: Android 源码的工厂方法模式
+date: 2019-10-27 23:48:26
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的工厂方法模式
 
 ## 工厂方法模式介绍

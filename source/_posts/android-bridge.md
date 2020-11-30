@@ -1,3 +1,10 @@
+---
+title: Android 源码的桥接模式
+date: 2019-11-29 23:58:32
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的桥接模式
 
 ## 桥接模式介绍

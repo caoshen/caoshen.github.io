@@ -1,3 +1,10 @@
+---
+title: Android 源码的状态模式
+date: 2019-11-02 00:49:53
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的状态模式
 
 ## 状态模式介绍

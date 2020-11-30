@@ -1,3 +1,10 @@
+---
+title: Android 源码的适配器模式
+date: 2019-11-24 17:41:52
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的适配器模式
 
 ## 适配器模式介绍

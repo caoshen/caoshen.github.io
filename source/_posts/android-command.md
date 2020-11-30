@@ -1,3 +1,10 @@
+---
+title: Android 源码的命令模式
+date: 2019-11-08 23:45:07
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的命令模式
 
 ## 命令模式介绍

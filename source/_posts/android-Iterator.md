@@ -1,3 +1,10 @@
+---
+title: Android 源码的迭代器模式
+date: 2019-11-12 23:59:45
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的迭代器模式
 
 ## 迭代器模式的介绍

@@ -1,3 +1,10 @@
+---
+title: Android 源码的抽象工厂模式
+date: 2019-10-28 23:54:03
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的抽象工厂模式
 
 ## 抽象工厂模式介绍

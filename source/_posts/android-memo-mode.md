@@ -1,3 +1,10 @@
+---
+title: Android 源码的备忘录模式
+date: 2019-11-10 23:57:50
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的备忘录模式
 
 ## 备忘录模式介绍

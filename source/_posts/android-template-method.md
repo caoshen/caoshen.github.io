@@ -1,3 +1,10 @@
+---
+title: Android 源码的模板方法模式
+date: 2019-11-15 23:58:10
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的模板方法模式
 
 ## 模板方法模式介绍

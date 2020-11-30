@@ -1,3 +1,10 @@
+---
+title: Android 源码的代理模式
+date: 2019-11-18 23:57:30
+tags: 设计模式
+categories: Android
+---
+
 # Android 源码的代理模式
 
 ## 代理模式介绍
