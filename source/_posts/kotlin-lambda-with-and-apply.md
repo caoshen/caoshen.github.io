@@ -1,7 +1,7 @@
 ---
 title: Kotlin 带接收者的 lambda ：with 和 apply
 date: 2019-10-19 00:11:43
-tags: Kotlin标准库
+tags: Kotlin
 categories: Kotlin
 ---
 

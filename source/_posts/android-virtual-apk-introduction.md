@@ -1,3 +1,10 @@
+---
+title: VirtualAPK 插件化框架介绍
+date: 2019-09-21 15:32:55
+tags: Android
+categories: Android
+---
+
 # VirtualAPK 插件化框架介绍
 
 [VirtualAPK](https://github.com/didi/VirtualAPK) 是一个 Android 插件化框架。如果一个 APK 有很多功能，其中一些功能使用的场景比较少，那么可以在这些功能被使用的时候动态加载，而不是一次性打包在整个 APK 中。插件化不仅可以缩小 APK 体积，也方便各个插件特性的动态更新。

@@ -1,3 +1,10 @@
+---
+title: RxJava 线程切换过程解析
+date: 2019-09-07 17:43:40
+tags: Android
+categories: Android
+---
+
 # RxJava 线程切换过程解析
 
 RxJava 可以配合 RxAndroid 使用 Schedulers 和 AndroidSchedulers 完成线程的切换。

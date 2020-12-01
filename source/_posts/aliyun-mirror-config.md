@@ -1,8 +1,8 @@
 ﻿---
 title: 阿里云镜像配置
 date: 2019-08-18 22:15:58
-tags: 镜像
-categories: 网络
+tags:
+categories:
 ---
 
 # 阿里云镜像配置

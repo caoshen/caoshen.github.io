@@ -1,3 +1,10 @@
+---
+title: view 的事件分发机制
+date: 2019-08-19 23:09:01
+tags: View
+categories: Android
+---
+
 # view 的事件分发机制
 
 当点击手机屏幕时，会产生点击事件，这个事件就是MotionEvent。view系统有一套事件分发机制，决定由哪一个 view 处理点击事件。

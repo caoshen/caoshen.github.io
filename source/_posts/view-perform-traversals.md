@@ -1,3 +1,10 @@
+---
+title: View 的绘制流程
+date: 2019-08-19 23:10:08
+tags: View
+categories: Android
+---
+
 # View 的绘制流程
 
 View 的绘制流程其实就是 View 的 measure\layout\draw 过程，分别对应测量、布局和绘制。

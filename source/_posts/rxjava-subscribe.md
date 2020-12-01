@@ -1,3 +1,10 @@
+---
+title: RxJava 订阅过程解析
+date: 2019-09-03 00:09:24
+tags: Android
+categories: Android
+---
+
 # RxJava 订阅过程解析
 
 这里以 RxJva 2.2.11 为例， 从 RxJava 的订阅过程解析 RxJava 源码。

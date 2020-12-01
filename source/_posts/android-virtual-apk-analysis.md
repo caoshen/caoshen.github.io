@@ -1,3 +1,10 @@
+---
+title: VirtualAPK 插件化原理分析
+date: 2019-09-26 01:16:54
+tags: Android
+categories: Android
+---
+
 # VirtualAPK 插件化原理分析
 
 这里以 VirtualAPK 0.9.8 版本为例，从三个方面介绍 VirtualAPK 的插件化原理。

@@ -1,3 +1,10 @@
+---
+title: RxJava 线程控制
+date: 2019-08-28 00:36:35
+tags: Android
+categories: Android
+---
+
 # RxJava 线程控制
 
 RxJava 可以切换调度线程，控制每个操作在哪个线程执行。

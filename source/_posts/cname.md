@@ -1,8 +1,8 @@
 ---
 title: CNAME 配置
 date: 2020-05-01 13:22:07
-tags: 网络
-categories: 网络
+tags:
+categories:
 ---
 
 # CNAME 配置

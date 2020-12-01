@@ -1,3 +1,10 @@
+---
+title: RxJava 的 Map 变换过程解析
+date: 2019-09-04 22:11:09
+tags: Android
+categories: Android
+---
+
 # RxJava 的 Map 变换过程解析
 
 这里以 Map 操作符为例解析 RxJava 的变换过程。

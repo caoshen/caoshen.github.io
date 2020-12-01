@@ -1,7 +1,7 @@
 ---
 title: 低功耗蓝牙的广播数据
 date: 2020-03-21 21:06:06
-tags: BLE广播
+tags: 蓝牙
 categories: 蓝牙
 ---
 
