@@ -1,3 +1,10 @@
+---
+title: 用 RxJava 实现 RxBus
+date: 2019-09-01 22:15:05
+tags: RxJava
+categories: Android
+---
+
 # 用 RxJava 实现 RxBus
 
 RxJava 可以用来实现 RxBus，实现事件发送和监听。

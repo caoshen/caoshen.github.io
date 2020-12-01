@@ -1,3 +1,10 @@
+---
+title: Activity 难点
+date: 2019-08-19 23:11:19
+tags: Activity
+categories: Android
+---
+
 # Activity 难点
 
 记录 Activity 相关的问题。

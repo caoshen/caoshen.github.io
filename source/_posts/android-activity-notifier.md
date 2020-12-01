@@ -1,3 +1,10 @@
+---
+title: 自定义 ActivityNotifier 观察所有 Activity 切换
+date: 2019-12-03 01:01:30
+tags: Activity
+categories: Android
+---
+
 # 自定义 ActivityNotifier 观察所有 Activity 切换
 
 我们知道，使用 Application 注册 ActivityLifecycleCallbacks 可以观察到本应用的所有 Activity 的生命周期切换。那么有没有一种方法可以观察到手机上所有应用的 Activity 的生命周期切换？

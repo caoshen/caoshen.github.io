@@ -1,4 +1,11 @@
-Android 布局 ViewGroup 置灰
+---
+title: Android 布局 ViewGroup 置灰
+date: 2019-09-13 17:55:08
+tags: View
+categories: Android
+---
+
+# Android 布局 ViewGroup 置灰
 
 如果对 button 控件 setEnabled(false)，会把 button 控件置灰，同时使得 button 无法点击。
 

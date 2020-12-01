@@ -1,3 +1,10 @@
+---
+title: 在 build.gradle.kts 添加 maven 仓库
+date: 2020-01-05 22:31:52
+tags: Gradle
+categories: Android
+---
+
 # 在 build.gradle.kts 添加 maven 仓库
 
 使用 kotlin script DSL 配置 build.gradle.kts 时，添加 maven 仓库的方式如下：
