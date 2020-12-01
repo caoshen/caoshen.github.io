@@ -1,3 +1,10 @@
+---
+title: Android 消息机制
+date: 2019-08-19 23:10:41
+tags: Handler
+categories: Android
+---
+
 # Android 消息机制
 
 Android 的消息机制是通过 Handler 来完成的。Handler 内部有 Looper 和 MessageQueue 分别用来处理消息循环和保存消息队列。

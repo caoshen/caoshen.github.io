@@ -1,3 +1,10 @@
+---
+title: Android SharedPreferences 实现原理
+date: 2019-10-07 21:31:33
+tags: Android
+categories: Android
+---
+
 # Android SharedPreferences 实现原理
 
 Android 的 SharedPreferences 一般用来保存一些标记位或者是一些设置项，比较适合轻量级的存储。

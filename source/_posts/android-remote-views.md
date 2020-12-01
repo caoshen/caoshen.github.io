@@ -1,4 +1,11 @@
-# Android RemoveViews
+---
+title: Android RemoteViews
+date: 2019-08-19 23:14:05
+tags: View
+categories: Android
+---
+
+# Android RemoteViews
 
 RemoteViews 远程视图，它不是用在应用自身的进程中，而是用在其他进程（SystemServer 进程）中显示视图界面，但它不是真正的 View，也没有继承自 View 类。RemoteViews 的使用场景有两种，通知栏和桌面小部件（Widget）。
 

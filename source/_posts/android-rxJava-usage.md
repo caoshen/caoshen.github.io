@@ -1,3 +1,10 @@
+---
+title: Android RxJava 基本用法
+date: 2019-08-20 00:42:51
+tags: RxJava
+categories: Android
+---
+
 # Android RxJava 基本用法
 
 RxJava 使用函数响应式编程方式，它可以简化项目，处理嵌套回调的异步事件。

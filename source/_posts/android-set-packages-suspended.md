@@ -1,3 +1,10 @@
+---
+title: Android setPackagesSuspended 暂停应用
+date: 2019-09-12 00:12:09
+tags: Framework
+categories: Android
+---
+
 # Android setPackagesSuspended 暂停应用
 
 setPackagesSuspended 是 PackageManager 的一个 public 方法，它可以用来暂停应用。

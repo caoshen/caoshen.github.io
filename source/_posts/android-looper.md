@@ -1,3 +1,12 @@
+---
+title: Android 主线程与Looper.loop() 循环
+date: 2019-08-20 00:39:27
+tags:
+  - Handler
+  - Looper
+categories: Android
+---
+
 # Android 主线程与Looper.loop() 循环
 
 Android中为什么主线程不会因为Looper.loop()里的死循环卡死？这是一个知乎上的问题，链接如下：

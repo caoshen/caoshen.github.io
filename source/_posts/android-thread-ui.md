@@ -1,3 +1,10 @@
+---
+title: Android 子线程更新 UI
+date: 2019-08-20 00:37:33
+tags: View
+categories: Android
+---
+
 # Android 子线程更新 UI
 
 一般来说，不能在子线程更新 UI 控件，否则子线程和主线程同时更新 UI，可能导致 UI 被多个线程控制，显示异常。

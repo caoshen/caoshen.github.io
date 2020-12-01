@@ -1,3 +1,10 @@
+---
+title: Android Window
+date: 2019-08-19 23:14:34
+tags: Android
+categories: Android
+---
+
 # Android Window
 
 Window 是一个抽象类，它的实现是 PhoneWindow。Activity 的 setContentView 方法实际上就是通过 PhoneWindow 完成的。一般使用 WindowManager 来添加 View。WindowManager 是客户端用来添加 View 的接口，WindowManager 在 framework 层对应的是 WindowManagerService。

@@ -1,4 +1,10 @@
-﻿
+﻿---
+title: Android 中的 IPC 方式
+date: 2019-08-18 22:12:55
+tags: IPC
+categories: Android
+---
+
 # Android 中的 IPC 方式
 
 Android 中跨进程通信的方式有 intent 传入 bundle，共享文件，Messenger，AIDL，ContentProvider，Socket。
