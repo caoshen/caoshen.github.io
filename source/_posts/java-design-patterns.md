@@ -1,3 +1,10 @@
+---
+title: Java 设计模式基本原则
+date: 2019-10-16 23:17:40
+tags: 设计模式
+categories: Java
+---
+
 # Java 设计模式基本原则
 
 Java 设计模式有 6 个基本的原则：

@@ -1,3 +1,10 @@
+---
+title: Java volatile 关键字
+date: 2019-10-04 19:31:29
+tags: 多线程
+categories: Java
+---
+
 # Java volatile 关键字
 
 volatile 是 Java 的关键字，它的本意是易变的，即被 volatile 声明的变量可能被其他线程修改，需要用 volatile 保证变量的可见性和有序性。

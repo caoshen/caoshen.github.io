@@ -1,3 +1,10 @@
+---
+title: Java 线程的状态
+date: 2019-09-27 00:28:20
+tags: 多线程
+categories: Java
+---
+
 # Java 线程的状态
 
 Java 线程在运行的生命周期中可能处于 6 种不同的状态：

@@ -1,7 +1,8 @@
 ---
 title: GitHub Pages 强制 HTTPS
-date: 2019-02-16 10:55:11
-tags:
+date: 2019-08-18 22:11:45
+tags: 网络
+categories: 网络
 ---
 
 # GitHub Pages 强制 HTTPS
@@ -10,5 +11,3 @@ tags:
 2. 找到 options -> GitHub Pages, 勾选 Enforce HTTPS.
 
 {% asset_img enforce-https.png Enforce HTTPS %}
-
-

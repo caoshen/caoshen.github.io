@@ -1,3 +1,10 @@
+---
+title: Java 阻塞队列
+date: 2019-10-05 19:14:01
+tags: 多线程
+categories: Java
+---
+
 # Java 阻塞队列
 
 阻塞队列在 Java 中时常被用到，比如线程池、生产者消费者模型。

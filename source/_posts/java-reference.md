@@ -1,3 +1,10 @@
+---
+title: Java 强软弱虚引用
+date: 2019-10-04 12:23:59
+tags: Java
+categories: Java
+---
+
 # Java 强软弱虚引用
 
 Java 根据对象的引用方式可以分为：强引用、软引用、弱引用、虚引用。

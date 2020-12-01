@@ -1,3 +1,10 @@
+---
+title: Flutter TabBar 标签
+date: 2019-08-20 00:38:25
+tags: Flutter
+categories: Flutter
+---
+
 # Flutter TabBar 标签
 
 Flutter 实现标签左右滑动切换，可以使用 TabBar 和 TabBarView。TabBar 和 TabBarView 分别表示标签和标签对应的内容页面。

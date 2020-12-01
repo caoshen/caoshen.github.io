@@ -1,3 +1,10 @@
+---
+title: Java 线程 Runnable 与 Callable
+date: 2019-09-27 23:54:12
+tags: 多线程
+categories: Java
+---
+
 # Java 线程 Runnable 与 Callable
 
 如果想在新线程运行代码，可以使用 Thread 传递 Runnable 参数或者使用 Executor 调用 Callable 对象的方法。两者的区别主要在于 Callable 会返回一个 Future 对象，用来表示执行结果。
