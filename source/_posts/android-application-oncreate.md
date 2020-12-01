@@ -1,3 +1,10 @@
+---
+title: Application 的 onCreate 和 attachBaseContext
+date: 2019-12-01 23:57:54
+tags: 四大组件
+categories: Android
+---
+
 # Application 的 onCreate 和 attachBaseContext
 
 Application 的 onCreate 和 attachBaseContext 是 Application 的两个回调方法，通常我们会在其中做一些初始化操作。

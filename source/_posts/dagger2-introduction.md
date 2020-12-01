@@ -1,3 +1,10 @@
+---
+title: Dagger2 依赖注入框架介绍
+date: 2019-09-18 23:53:34
+tags: 依赖注入
+categories: Android
+---
+
 # Dagger2 依赖注入框架介绍
 
 Dagger2 是一个标准的依赖注入框架。Dagger2 是 Dagger1（Square 公司开发）的分支，由谷歌接手开发。

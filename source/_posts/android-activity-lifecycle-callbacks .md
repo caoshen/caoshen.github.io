@@ -1,7 +1,7 @@
 ---
 title: Activity 应用生命周期回调 ActivityLifecycleCallbacks 
 date: 2019-09-09 23:17:26
-tags: Activity
+tags: 四大组件
 categories: Android
 ---
 

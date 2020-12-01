@@ -1,7 +1,7 @@
 ---
 title: 自定义 ActivityNotifier 观察所有 Activity 切换
 date: 2019-12-03 01:01:30
-tags: Activity
+tags: 四大组件
 categories: Android
 ---
 

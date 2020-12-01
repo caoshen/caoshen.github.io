@@ -1,3 +1,10 @@
+---
+title: Binder、IBinder 和 IInterface 的关系
+date: 2019-08-20 00:40:01
+tags: IPC
+categories: Android
+---
+
 # Binder、IBinder 和 IInterface 的关系
 
 ## IBinder 接口

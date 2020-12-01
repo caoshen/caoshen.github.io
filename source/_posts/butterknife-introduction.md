@@ -1,3 +1,10 @@
+---
+title: ButterKnife View 注解框架介绍
+date: 2019-09-14 17:55:04
+tags: 依赖注入
+categories: Android
+---
+
 # ButterKnife View 注解框架介绍
 
 ButterKnife 是 Android 系统的 View 注入框架，它可以减少大量的 findViewById 以及 setOnClickListener 代码，简化代码并提升开发效率。

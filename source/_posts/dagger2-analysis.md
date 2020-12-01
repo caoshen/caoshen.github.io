@@ -1,3 +1,10 @@
+---
+title: Dagger2 依赖注入的原理分析
+date: 2019-09-20 01:37:16
+tags: 依赖注入
+categories: Android
+---
+
 # Dagger2 依赖注入的原理分析
 
 因为 Dagger2 的使用情况很多，这里只对基本的使用方法进行分析。

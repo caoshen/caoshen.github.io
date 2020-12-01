@@ -1,3 +1,10 @@
+---
+title: AsyncTask 异步任务
+date: 2019-08-20 00:38:57
+tags: Android
+categories: Android
+---
+
 # AsyncTask 异步任务
 
 AsyncTask 是 Android 的异步任务类，它本质上是对 Thread 和 Handler 的封装，达到工作线程执行异步任务，执行完毕后切换到主线程的功能。

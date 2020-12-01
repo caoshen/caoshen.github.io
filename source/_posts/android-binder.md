@@ -1,7 +1,8 @@
 ---
 title: Binder 笔记
-date: 2019-02-03 15:57:57
-tags:
+date: 2019-08-18 22:11:01
+tags: IPC
+categories: Android
 ---
 
 # Binder 笔记

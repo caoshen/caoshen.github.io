@@ -1,7 +1,7 @@
 ---
 title: Activity 难点
 date: 2019-08-19 23:11:19
-tags: Activity
+tags: 四大组件
 categories: Android
 ---
 

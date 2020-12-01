@@ -1,3 +1,10 @@
+---
+title: ContentProvider 难点
+date: 2019-08-19 23:13:31
+tags: 四大组件
+categories: Android
+---
+
 # ContentProvider 难点
 
 ## ContentProvider 的生命周期

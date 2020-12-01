@@ -1,3 +1,10 @@
+---
+title: ButterKnife View 注解框架原理解析
+date: 2019-09-15 13:21:11
+tags: 依赖注入
+categories: Android
+---
+
 # ButterKnife View 注解框架原理解析
 
 这里以 ButterKnife 的 10.2.0 版本为例。

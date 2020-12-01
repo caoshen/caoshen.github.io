@@ -1,3 +1,10 @@
+---
+title: ContentProvider 的 query 流程分析
+date: 2019-09-11 00:34:13
+tags: 四大组件
+categories: Android
+---
+
 # ContentProvider 的 query 流程分析
 
 ContentProvider 将底层的数据结构（比如数据库、文件）封装并且提供增删改查的接口，提供给本应用或者外部的应用调用。
