@@ -87,7 +87,7 @@ avatar:
   effect: false
 
 # The banner image of home page
-index_img: https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg
+index_img: https://pic1.zhimg.com/80/v2-505edd6eb11d990fe049896005f1f15d_720w.jpeg
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
@@ -123,11 +123,21 @@ cover:
   position: both
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    - https://pic1.zhimg.com/80/v2-53cf7b4f3782749070a4207dd4d4888b_1440w.jpeg
-    - https://pic4.zhimg.com/80/v2-905b30ef749b15963046e9bd1d41f195_1440w.jpeg
-    - https://pic2.zhimg.com/80/v2-de84195207d783e0ed3bfb99f151f23e_1440w.jpeg
-    - https://pic1.zhimg.com/80/v2-1fb9faa1ea61d40bed117604673486ae_1440w.jpeg
-    - https://pic1.zhimg.com/80/v2-ae3e138bac66bc9e3081c035d27dcfd9_1440w.jpeg
+    - https://pic1.zhimg.com/80/v2-3d3e23d718bd5644d887b8b34d5567b2_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-1cdcdbb5a4e88b22dcf70254bd304cf4_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-f35173d481bfa0b7fbb5d143cfdd9c24_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-0abf538399b88f11cd3864acd01217b0_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-7ee85967b49666200f68099e057ccfdf_720w.jpeg
+    - https://pic2.zhimg.com/80/v2-04c1521e53f8b7438335ab3e6a6c611c_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-ce97917245cff618aa5ed0f75d678d9b_720w.jpeg
+    - https://pic2.zhimg.com/80/v2-88bf56bf923d14a142cd6a48801bfb45_720w.jpeg
+    - https://pic4.zhimg.com/80/v2-99278df8a75a8ea34b0ad593639aa64f_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-5ca8d87b00593315f5571544d22ef031_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-9efeac87d85d51af8ec3470d8b31d80f_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-427a43867567db303d152ba8a8eda943_720w.jpeg
+    - https://pic4.zhimg.com/80/v2-1b863a1a56e94ef469b80147b1597481_720w.jpeg
+    - https://pic1.zhimg.com/80/v2-5de55e882275aecbc0ee6dbf18b38261_720w.jpeg
+    - https://pic4.zhimg.com/80/v2-e8217349951412b8a73bcf5956cf99de_720w.jpeg
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
