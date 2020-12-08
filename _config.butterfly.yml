@@ -23,7 +23,7 @@ hide_sidebar_menu_child: false
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: light #  darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: mac #  darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -87,7 +87,7 @@ avatar:
   effect: false
 
 # The banner image of home page
-index_img: https://pic1.zhimg.com/80/v2-505edd6eb11d990fe049896005f1f15d_720w.jpeg
+index_img: https://pic1.zhimg.com/80/v2-1b66fae646e6c2806bc707be1c2ef9ae_1440w.jpeg
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
